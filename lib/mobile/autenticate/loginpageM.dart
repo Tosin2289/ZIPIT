@@ -1,17 +1,19 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:zipit/tablet/autenticate/forgotpasswordpageT.dart';
+import 'package:zipit/mobile/autenticate/forgotpasswordpageM.dart';
+import 'package:zipit/mobile/autenticate/registerpageM.dart';
 
-class LoginPageTablet extends StatefulWidget {
+class LoginPageMobile extends StatefulWidget {
   final Function()? onTap;
-  const LoginPageTablet({Key? key, required this.onTap}) : super(key: key);
+  const LoginPageMobile({Key? key, required this.onTap}) : super(key: key);
 
   @override
-  State<LoginPageTablet> createState() => _LoginPageTabletState();
+  State<LoginPageMobile> createState() => _LoginPageMobileState();
 }
 
-class _LoginPageTabletState extends State<LoginPageTablet> {
+class _LoginPageMobileState extends State<LoginPageMobile> {
   final emailcontroller = TextEditingController();
   final passwordcontroller = TextEditingController();
   void Signin() async {
@@ -43,6 +45,13 @@ class _LoginPageTabletState extends State<LoginPageTablet> {
   }
 
   @override
+  void dispose() {
+    emailcontroller.dispose();
+    passwordcontroller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
@@ -56,7 +65,7 @@ class _LoginPageTabletState extends State<LoginPageTablet> {
                   children: [
                     Lottie.asset(
                       'assets/log.json',
-                      height: 400,
+                      height: 250,
                       fit: BoxFit.fill,
                     ),
                   ],
@@ -66,14 +75,14 @@ class _LoginPageTabletState extends State<LoginPageTablet> {
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(
-                      horizontal: 28.0, vertical: 12),
+                      horizontal: 18.0, vertical: 12),
                   child: TextField(
-                    style: TextStyle(fontSize: 30),
+                    style: TextStyle(fontSize: 20),
                     controller: emailcontroller,
                     decoration: InputDecoration(
-                      hintStyle: TextStyle(fontSize: 30),
+                      hintStyle: TextStyle(fontSize: 20),
                       contentPadding:
-                          EdgeInsets.symmetric(vertical: 37, horizontal: 12),
+                          EdgeInsets.symmetric(vertical: 27, horizontal: 10),
                       hintText: 'Email',
                       border: InputBorder.none,
                       enabledBorder: OutlineInputBorder(
@@ -91,15 +100,15 @@ class _LoginPageTabletState extends State<LoginPageTablet> {
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(
-                      horizontal: 28.0, vertical: 12),
+                      horizontal: 18.0, vertical: 12),
                   child: TextField(
-                    style: TextStyle(fontSize: 30),
+                    style: TextStyle(fontSize: 20),
                     controller: passwordcontroller,
                     obscureText: true,
                     decoration: InputDecoration(
-                      hintStyle: TextStyle(fontSize: 30),
+                      hintStyle: TextStyle(fontSize: 20),
                       contentPadding:
-                          EdgeInsets.symmetric(vertical: 37, horizontal: 14),
+                          EdgeInsets.symmetric(vertical: 27, horizontal: 10),
                       hintText: 'Password',
                       border: InputBorder.none,
                       enabledBorder: OutlineInputBorder(
@@ -124,13 +133,13 @@ class _LoginPageTabletState extends State<LoginPageTablet> {
                         onTap: (() {
                           Navigator.push(context,
                               MaterialPageRoute(builder: ((context) {
-                            return ForgotPasswordPageTablet();
+                            return forgotPasswordPageMobile();
                           })));
                         }),
                         child: Text(
                           "Forgot Password",
                           style: TextStyle(
-                              fontSize: 25,
+                              fontSize: 20,
                               fontWeight: FontWeight.bold,
                               color: Colors.blue),
                         ),
@@ -153,9 +162,9 @@ class _LoginPageTabletState extends State<LoginPageTablet> {
                             letterSpacing: 1.5,
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
-                            fontSize: 35),
+                            fontSize: 30),
                       )),
-                      height: 90,
+                      height: 80,
                       decoration: BoxDecoration(
                           color: Colors.deepPurple,
                           borderRadius: BorderRadius.circular(15)),
@@ -163,7 +172,7 @@ class _LoginPageTabletState extends State<LoginPageTablet> {
                   ),
                 ),
                 SizedBox(
-                  height: 40,
+                  height: 20,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -171,14 +180,14 @@ class _LoginPageTabletState extends State<LoginPageTablet> {
                     Text(
                       "Dont have an account?",
                       style:
-                          TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
                     GestureDetector(
                       onTap: widget.onTap,
                       child: Text(
                         " Register".toUpperCase(),
                         style: TextStyle(
-                            fontSize: 30,
+                            fontSize: 20,
                             fontWeight: FontWeight.bold,
                             color: Colors.blue),
                       ),

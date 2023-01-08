@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:zipit/tablet/autenticate/auth_pageTablet.dart';
 import 'package:zipit/tablet/autenticate/loginpage.dart';
 
 class IntroScreenTablet extends StatelessWidget {
@@ -57,9 +58,9 @@ class IntroScreenTablet extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.push(context,
+                    Navigator.pushReplacement(context,
                         MaterialPageRoute(builder: ((context) {
-                      return LoginPageTablet();
+                      return AuthPageTablet();
                     })));
                   },
                   child: Container(

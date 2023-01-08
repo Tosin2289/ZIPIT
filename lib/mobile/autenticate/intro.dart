@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
-import 'package:zipit/mobile/autenticate/loginpage.dart';
+import 'package:zipit/mobile/autenticate/auth_pageM.dart';
+import 'package:zipit/mobile/autenticate/loginpageM.dart';
 
 class IntroScreenMobile extends StatelessWidget {
   const IntroScreenMobile({Key? key}) : super(key: key);
@@ -56,9 +57,9 @@ class IntroScreenMobile extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.push(context,
+                    Navigator.pushReplacement(context,
                         MaterialPageRoute(builder: ((context) {
-                      return LoginPageMobile();
+                      return AuthPageMobile();
                     })));
                   },
                   child: Container(

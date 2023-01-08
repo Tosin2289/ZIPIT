@@ -1,20 +1,20 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:zipit/tablet/autenticate/forgotpasswordpageT.dart';
 
-class LoginPageTablet extends StatefulWidget {
+class RegisterPageTablet extends StatefulWidget {
   final Function()? onTap;
-  const LoginPageTablet({Key? key, required this.onTap}) : super(key: key);
+  RegisterPageTablet({Key? key, required this.onTap}) : super(key: key);
 
   @override
-  State<LoginPageTablet> createState() => _LoginPageTabletState();
+  State<RegisterPageTablet> createState() => _RegisterPageTabletState();
 }
 
-class _LoginPageTabletState extends State<LoginPageTablet> {
-  final emailcontroller = TextEditingController();
-  final passwordcontroller = TextEditingController();
-  void Signin() async {
+class _RegisterPageTabletState extends State<RegisterPageTablet> {
+  final emailcontoller = TextEditingController();
+  final passwordcontoller = TextEditingController();
+  final confirmpasswordcontoller = TextEditingController();
+  void SignUserUp() async {
     showDialog(
         context: context,
         builder: ((context) {
@@ -23,8 +23,12 @@ class _LoginPageTabletState extends State<LoginPageTablet> {
           );
         }));
     try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-          email: emailcontroller.text, password: passwordcontroller.text);
+      if (passwordcontoller.text == confirmpasswordcontoller.text) {
+        await FirebaseAuth.instance.createUserWithEmailAndPassword(
+            email: emailcontoller.text, password: passwordcontoller.text);
+      } else {
+        showerrormessage("Password do not match!");
+      }
       Navigator.pop(context);
     } on FirebaseException catch (e) {
       Navigator.pop(context);
@@ -61,15 +65,12 @@ class _LoginPageTabletState extends State<LoginPageTablet> {
                     ),
                   ],
                 ),
-                SizedBox(
-                  height: 30,
-                ),
                 Padding(
                   padding: const EdgeInsets.symmetric(
                       horizontal: 28.0, vertical: 12),
                   child: TextField(
                     style: TextStyle(fontSize: 30),
-                    controller: emailcontroller,
+                    controller: emailcontoller,
                     decoration: InputDecoration(
                       hintStyle: TextStyle(fontSize: 30),
                       contentPadding:
@@ -94,12 +95,12 @@ class _LoginPageTabletState extends State<LoginPageTablet> {
                       horizontal: 28.0, vertical: 12),
                   child: TextField(
                     style: TextStyle(fontSize: 30),
-                    controller: passwordcontroller,
+                    controller: passwordcontoller,
                     obscureText: true,
                     decoration: InputDecoration(
                       hintStyle: TextStyle(fontSize: 30),
                       contentPadding:
-                          EdgeInsets.symmetric(vertical: 37, horizontal: 14),
+                          EdgeInsets.symmetric(vertical: 37, horizontal: 12),
                       hintText: 'Password',
                       border: InputBorder.none,
                       enabledBorder: OutlineInputBorder(
@@ -116,39 +117,42 @@ class _LoginPageTabletState extends State<LoginPageTablet> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      GestureDetector(
-                        onTap: (() {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: ((context) {
-                            return ForgotPasswordPageTablet();
-                          })));
-                        }),
-                        child: Text(
-                          "Forgot Password",
-                          style: TextStyle(
-                              fontSize: 25,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.blue),
-                        ),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 28.0, vertical: 12),
+                  child: TextField(
+                    style: TextStyle(fontSize: 30),
+                    controller: confirmpasswordcontoller,
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      hintStyle: TextStyle(fontSize: 30),
+                      contentPadding:
+                          EdgeInsets.symmetric(vertical: 37, horizontal: 12),
+                      hintText: 'Confirm Password',
+                      border: InputBorder.none,
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white),
+                        borderRadius: BorderRadius.circular(12),
                       ),
-                    ],
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.deepPurple),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      filled: true,
+                      fillColor: Colors.grey[200],
+                    ),
                   ),
                 ),
                 SizedBox(
-                  height: 50,
+                  height: 20,
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 18.0),
                   child: GestureDetector(
-                    onTap: Signin,
+                    onTap: SignUserUp,
                     child: Container(
                       child: Center(
                           child: Text(
-                        "Login",
+                        "Register",
                         style: TextStyle(
                             letterSpacing: 1.5,
                             color: Colors.white,
@@ -169,14 +173,14 @@ class _LoginPageTabletState extends State<LoginPageTablet> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "Dont have an account?",
+                      "Already have an account?",
                       style:
                           TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                     ),
                     GestureDetector(
                       onTap: widget.onTap,
                       child: Text(
-                        " Register".toUpperCase(),
+                        " Log in".toUpperCase(),
                         style: TextStyle(
                             fontSize: 30,
                             fontWeight: FontWeight.bold,

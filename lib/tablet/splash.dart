@@ -42,7 +42,7 @@ class _SplashTabletState extends State<SplashTablet> {
                   child: Center(
                     child: Column(
                       children: [
-                        Lottie.asset('assets/diary.json', height: 250),
+                        Lottie.asset('assets/diary.json', height: 350),
                         SizedBox(
                           height: 10,
                         ),
