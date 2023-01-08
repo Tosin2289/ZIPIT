@@ -8,6 +8,7 @@ class AppStyleTablet {
   static Color accentColor = Color(0xFF0065FF);
   static List<Color> cardsColorT = [
     Colors.white,
+    Colors.purple.shade200,
     Colors.red.shade200,
     Colors.pink.shade200,
     Colors.orange.shade200,
@@ -15,6 +16,7 @@ class AppStyleTablet {
     Colors.green.shade200,
     Colors.blue.shade200,
     Colors.blueGrey.shade200,
+    Colors.cyan.shade200
   ];
   static TextStyle mainTitleTablet =
       GoogleFonts.roboto(fontSize: 22.0, fontWeight: FontWeight.bold);
