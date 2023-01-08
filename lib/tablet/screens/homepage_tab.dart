@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class HomePageTab extends StatefulWidget {
@@ -8,10 +9,22 @@ class HomePageTab extends StatefulWidget {
 }
 
 class _HomePageTabState extends State<HomePageTab> {
+  final user = FirebaseAuth.instance.currentUser!;
+  void SignOut() {
+    FirebaseAuth.instance.signOut();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green,
+      appBar: AppBar(
+        backgroundColor: Colors.deepPurple,
+        title: Text("HomePage"),
+        centerTitle: true,
+        actions: [
+          IconButton(onPressed: SignOut, icon: Icon(Icons.logout_outlined))
+        ],
+      ),
     );
   }
 }
