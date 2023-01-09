@@ -17,7 +17,7 @@ class IntroScreenTablet extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              Lottie.asset('assets/writing.json'),
+              Lottie.asset('assets/writingt.json'),
               Spacer(),
               Row(
                 children: [
@@ -66,7 +66,7 @@ class IntroScreenTablet extends StatelessWidget {
                   child: Container(
                     height: 80,
                     decoration: BoxDecoration(
-                      color: Colors.deepPurple,
+                      color: Colors.black,
                       borderRadius: BorderRadius.circular(15),
                     ),
                     child: Center(

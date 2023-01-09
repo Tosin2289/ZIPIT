@@ -49,7 +49,7 @@ class _forgotPasswordPageMobileState extends State<forgotPasswordPageMobile> {
         elevation: 0,
         centerTitle: true,
         title: Text("Forgot password"),
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: Colors.black,
       ),
       body: Center(
           child: Column(
@@ -72,7 +72,7 @@ class _forgotPasswordPageMobileState extends State<forgotPasswordPageMobile> {
                   borderRadius: BorderRadius.circular(12),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.deepPurple),
+                  borderSide: BorderSide(color: Colors.black),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 filled: true,
@@ -85,7 +85,7 @@ class _forgotPasswordPageMobileState extends State<forgotPasswordPageMobile> {
             child: Container(
               height: 60,
               decoration: BoxDecoration(
-                color: Colors.deepPurple,
+                color: Colors.black,
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Center(

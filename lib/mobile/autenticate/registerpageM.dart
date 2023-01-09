@@ -67,7 +67,7 @@ class _RegisterPageMobileState extends State<RegisterPageMobile> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Lottie.asset(
-                      'assets/log.json',
+                      'assets/logint.json',
                       height: 250,
                       fit: BoxFit.fill,
                     ),
@@ -90,7 +90,7 @@ class _RegisterPageMobileState extends State<RegisterPageMobile> {
                         borderRadius: BorderRadius.circular(12),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.deepPurple),
+                        borderSide: BorderSide(color: Colors.black),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       filled: true,
@@ -116,7 +116,7 @@ class _RegisterPageMobileState extends State<RegisterPageMobile> {
                         borderRadius: BorderRadius.circular(12),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.deepPurple),
+                        borderSide: BorderSide(color: Colors.black),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       filled: true,
@@ -142,7 +142,7 @@ class _RegisterPageMobileState extends State<RegisterPageMobile> {
                         borderRadius: BorderRadius.circular(12),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.deepPurple),
+                        borderSide: BorderSide(color: Colors.black),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       filled: true,
@@ -169,7 +169,7 @@ class _RegisterPageMobileState extends State<RegisterPageMobile> {
                       )),
                       height: 80,
                       decoration: BoxDecoration(
-                          color: Colors.deepPurple,
+                          color: Colors.black,
                           borderRadius: BorderRadius.circular(15)),
                     ),
                   ),

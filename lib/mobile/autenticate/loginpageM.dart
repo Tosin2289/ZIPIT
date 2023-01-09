@@ -64,7 +64,7 @@ class _LoginPageMobileState extends State<LoginPageMobile> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Lottie.asset(
-                      'assets/log.json',
+                      'assets/logint.json',
                       height: 250,
                       fit: BoxFit.fill,
                     ),
@@ -90,7 +90,7 @@ class _LoginPageMobileState extends State<LoginPageMobile> {
                         borderRadius: BorderRadius.circular(12),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.deepPurple),
+                        borderSide: BorderSide(color: Colors.black),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       filled: true,
@@ -116,7 +116,7 @@ class _LoginPageMobileState extends State<LoginPageMobile> {
                         borderRadius: BorderRadius.circular(12),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.deepPurple),
+                        borderSide: BorderSide(color: Colors.black),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       filled: true,
@@ -166,7 +166,7 @@ class _LoginPageMobileState extends State<LoginPageMobile> {
                       )),
                       height: 80,
                       decoration: BoxDecoration(
-                          color: Colors.deepPurple,
+                          color: Colors.black,
                           borderRadius: BorderRadius.circular(15)),
                     ),
                   ),

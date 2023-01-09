@@ -41,7 +41,7 @@ class _ForgotPasswordPageTabletState extends State<ForgotPasswordPageTablet> {
         elevation: 0,
         centerTitle: true,
         title: Text("Forgot password"),
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: Colors.black,
       ),
       body: Center(
           child: Column(
@@ -68,7 +68,7 @@ class _ForgotPasswordPageTabletState extends State<ForgotPasswordPageTablet> {
                   borderRadius: BorderRadius.circular(12),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.deepPurple),
+                  borderSide: BorderSide(color: Colors.black),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 filled: true,
@@ -84,7 +84,7 @@ class _ForgotPasswordPageTabletState extends State<ForgotPasswordPageTablet> {
             child: Container(
               height: 90,
               decoration: BoxDecoration(
-                color: Colors.deepPurple,
+                color: Colors.black,
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Center(

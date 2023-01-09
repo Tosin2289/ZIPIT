@@ -55,7 +55,7 @@ class _LoginPageTabletState extends State<LoginPageTablet> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Lottie.asset(
-                      'assets/log.json',
+                      'assets/logint.json',
                       height: 400,
                       fit: BoxFit.fill,
                     ),
@@ -81,7 +81,7 @@ class _LoginPageTabletState extends State<LoginPageTablet> {
                         borderRadius: BorderRadius.circular(12),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.deepPurple),
+                        borderSide: BorderSide(color: Colors.black),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       filled: true,
@@ -107,7 +107,7 @@ class _LoginPageTabletState extends State<LoginPageTablet> {
                         borderRadius: BorderRadius.circular(12),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.deepPurple),
+                        borderSide: BorderSide(color: Colors.black),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       filled: true,
@@ -157,7 +157,7 @@ class _LoginPageTabletState extends State<LoginPageTablet> {
                       )),
                       height: 90,
                       decoration: BoxDecoration(
-                          color: Colors.deepPurple,
+                          color: Colors.black,
                           borderRadius: BorderRadius.circular(15)),
                     ),
                   ),

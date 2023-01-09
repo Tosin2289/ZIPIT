@@ -23,15 +23,50 @@ class _HomePageMobileState extends State<HomePageMobile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppStyleMoile.mainColor,
+      backgroundColor: Colors.black,
+      drawer: Drawer(
+        backgroundColor: Colors.black,
+        child: ListView(children: [
+          UserAccountsDrawerHeader(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(20),
+                    bottomRight: Radius.circular(20)),
+                color: Colors.white,
+              ),
+              accountName: Text(
+                user.displayName!,
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold),
+              ),
+              accountEmail: Text(
+                user.email!,
+                style: TextStyle(color: Colors.black, fontSize: 18),
+              )),
+          SizedBox(
+            height: 30,
+          ),
+          ListTile(
+            onTap: SignOut,
+            textColor: Colors.white,
+            leading: Icon(
+              Icons.logout_outlined,
+              color: Colors.white,
+            ),
+            title: Text(
+              "Logout",
+              style: TextStyle(fontSize: 20),
+            ),
+          )
+        ]),
+      ),
       appBar: AppBar(
-        backgroundColor: AppStyleMoile.mainColor,
+        backgroundColor: Colors.black,
         title: Text("Z I P I T"),
         centerTitle: true,
         elevation: 0,
-        actions: [
-          IconButton(onPressed: SignOut, icon: Icon(Icons.logout_outlined))
-        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -85,14 +120,20 @@ class _HomePageMobileState extends State<HomePageMobile> {
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.white,
         onPressed: () {
           Navigator.push(context, MaterialPageRoute(builder: ((context) {
             return NewNoteScreenMobile();
           })));
         },
-        label: Text("New Note"),
-        icon: Icon(Icons.add),
+        label: Text(
+          "New Note",
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+        ),
+        icon: Icon(
+          Icons.add,
+          color: Colors.black,
+        ),
       ),
     );
   }
