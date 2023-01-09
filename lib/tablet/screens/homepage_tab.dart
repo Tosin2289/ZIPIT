@@ -34,14 +34,14 @@ class _HomePageTabState extends State<HomePageTab> {
                 color: Colors.white,
               ),
               accountName: Text(
-                user.displayName!,
+                user.email!,
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 30,
                     fontWeight: FontWeight.bold),
               ),
               accountEmail: Text(
-                user.email!,
+                '',
                 style: TextStyle(color: Colors.black, fontSize: 25),
               )),
           SizedBox(

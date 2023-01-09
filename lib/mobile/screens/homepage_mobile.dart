@@ -35,14 +35,14 @@ class _HomePageMobileState extends State<HomePageMobile> {
                 color: Colors.white,
               ),
               accountName: Text(
-                user.displayName!,
+                user.email!,
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 20,
                     fontWeight: FontWeight.bold),
               ),
               accountEmail: Text(
-                user.email!,
+                '',
                 style: TextStyle(color: Colors.black, fontSize: 18),
               )),
           SizedBox(
