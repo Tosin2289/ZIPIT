@@ -21,7 +21,9 @@ class _LoginPageMobileState extends State<LoginPageMobile> {
         context: context,
         builder: ((context) {
           return Center(
-            child: CircularProgressIndicator(),
+            child: CircularProgressIndicator(
+              color: Colors.black,
+            ),
           );
         }));
     try {
@@ -64,7 +66,7 @@ class _LoginPageMobileState extends State<LoginPageMobile> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Lottie.asset(
-                      'assets/logint.json',
+                      'assets/loginb.json',
                       height: 250,
                       fit: BoxFit.fill,
                     ),

@@ -19,7 +19,9 @@ class _RegisterPageTabletState extends State<RegisterPageTablet> {
         context: context,
         builder: ((context) {
           return Center(
-            child: CircularProgressIndicator(),
+            child: CircularProgressIndicator(
+              color: Colors.black,
+            ),
           );
         }));
     try {
@@ -59,7 +61,7 @@ class _RegisterPageTabletState extends State<RegisterPageTablet> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Lottie.asset(
-                      'assets/logint.json',
+                      'assets/loginb.json',
                       height: 400,
                       fit: BoxFit.fill,
                     ),

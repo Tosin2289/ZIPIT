@@ -29,23 +29,23 @@ class _HomePageTabState extends State<HomePageTab> {
           UserAccountsDrawerHeader(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(20),
-                    bottomRight: Radius.circular(20)),
+                    bottomLeft: Radius.circular(24),
+                    bottomRight: Radius.circular(24)),
                 color: Colors.white,
               ),
               accountName: Text(
                 user.displayName!,
                 style: TextStyle(
                     color: Colors.black,
-                    fontSize: 20,
+                    fontSize: 30,
                     fontWeight: FontWeight.bold),
               ),
               accountEmail: Text(
                 user.email!,
-                style: TextStyle(color: Colors.black, fontSize: 18),
+                style: TextStyle(color: Colors.black, fontSize: 25),
               )),
           SizedBox(
-            height: 30,
+            height: 50,
           ),
           ListTile(
             onTap: SignOut,
@@ -53,10 +53,11 @@ class _HomePageTabState extends State<HomePageTab> {
             leading: Icon(
               Icons.logout_outlined,
               color: Colors.white,
+              size: 25,
             ),
             title: Text(
               "Logout",
-              style: TextStyle(fontSize: 20),
+              style: TextStyle(fontSize: 25),
             ),
           )
         ]),
@@ -90,13 +91,15 @@ class _HomePageTabState extends State<HomePageTab> {
                 builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
                     return Center(
-                      child: CircularProgressIndicator(),
+                      child: CircularProgressIndicator(
+                        color: Colors.black,
+                      ),
                     );
                   }
                   if (snapshot.hasData) {
                     return GridView(
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2),
+                          crossAxisCount: 3),
                       children: snapshot.data!.docs
                           .map((note) => noteCardTablet(() {
                                 Navigator.push(context, MaterialPageRoute(

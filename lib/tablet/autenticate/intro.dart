@@ -17,7 +17,7 @@ class IntroScreenTablet extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              Lottie.asset('assets/writingt.json'),
+              Lottie.asset('assets/writingb.json'),
               Spacer(),
               Row(
                 children: [

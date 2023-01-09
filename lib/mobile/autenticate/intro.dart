@@ -18,7 +18,7 @@ class IntroScreenMobile extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              Lottie.asset('assets/writingt.json'),
+              Lottie.asset('assets/writingb.json'),
               SizedBox(
                 height: 20,
               ),
