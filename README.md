@@ -14,7 +14,18 @@ mobile view
 
 ![Screenshot_1673339332](https://user-images.githubusercontent.com/66890167/211503825-7fe82b59-9cc6-4874-9acd-3c8787d95b3c.png)
 
-
-
 ![Screenshot_1673339340](https://user-images.githubusercontent.com/66890167/211504665-93fc6f51-d00b-4d77-9062-b89f0427b472.png)
+
+Tablet view
+
+<img width="289" alt="Screenshot 2023-01-10 093525" src="https://user-images.githubusercontent.com/66890167/211505050-6d559b35-381e-4255-bc7a-1a456abcb1dd.png">
+
+<img width="290" alt="Screenshot 2023-01-10 093557" src="https://user-images.githubusercontent.com/66890167/211505131-797ec0c4-fc3d-49fb-a45f-01919840af92.png">
+
+<img width="289" alt="Screenshot 2023-01-10 093701" src="https://user-images.githubusercontent.com/66890167/211505181-69259c77-b699-4d4f-91c7-430f9724b374.png">
+
+<img width="289" alt="Screenshot 2023-01-10 093626" src="https://user-images.githubusercontent.com/66890167/211505249-6a396267-64e9-4573-b602-571dc21175bb.png">
+
+<img width="287" alt="Screenshot 2023-01-10 094350" src="https://user-images.githubusercontent.com/66890167/211505281-66c22394-8e61-4b17-9be1-a6eeefdc4ce9.png">
+
 
