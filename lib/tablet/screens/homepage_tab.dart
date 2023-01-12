@@ -113,7 +113,7 @@ class _HomePageTabState extends State<HomePageTab> {
                   }
                   return Text(
                     "there's no Notes",
-                    style: GoogleFonts.nunito(color: Colors.white),
+                    style: GoogleFonts.nunito(color: Colors.white, fontSize: 20),
                   );
                 },
               ),
