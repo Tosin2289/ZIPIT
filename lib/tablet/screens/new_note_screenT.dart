@@ -66,7 +66,7 @@ class _NewNoteScreenTabletState extends State<NewNoteScreenTablet> {
         backgroundColor: Colors.black,
         onPressed: (() async {
           FirebaseFirestore.instance
-              .collection('thoughts')
+              .collection('notes')
               .add({
                 'note_title': titleController.text,
                 'creation_date': date,
