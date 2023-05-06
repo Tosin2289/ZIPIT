@@ -18,7 +18,7 @@ class _RegisterPageMobileState extends State<RegisterPageMobile> {
     showDialog(
         context: context,
         builder: ((context) {
-          return Center(
+          return const Center(
             child: CircularProgressIndicator(
               color: Colors.black,
             ),
@@ -79,20 +79,20 @@ class _RegisterPageMobileState extends State<RegisterPageMobile> {
                   padding: const EdgeInsets.symmetric(
                       horizontal: 18.0, vertical: 12),
                   child: TextField(
-                    style: TextStyle(fontSize: 20),
+                    style: const TextStyle(fontSize: 20),
                     controller: emailcontoller,
                     decoration: InputDecoration(
-                      hintStyle: TextStyle(fontSize: 20),
-                      contentPadding:
-                          EdgeInsets.symmetric(vertical: 27, horizontal: 10),
+                      hintStyle: const TextStyle(fontSize: 20),
+                      contentPadding: const EdgeInsets.symmetric(
+                          vertical: 27, horizontal: 10),
                       hintText: 'Email',
                       border: InputBorder.none,
                       enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.white),
+                        borderSide: const BorderSide(color: Colors.white),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.black),
+                        borderSide: const BorderSide(color: Colors.black),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       filled: true,
@@ -104,21 +104,21 @@ class _RegisterPageMobileState extends State<RegisterPageMobile> {
                   padding: const EdgeInsets.symmetric(
                       horizontal: 18.0, vertical: 12),
                   child: TextField(
-                    style: TextStyle(fontSize: 20),
+                    style: const TextStyle(fontSize: 20),
                     controller: passwordcontoller,
                     obscureText: true,
                     decoration: InputDecoration(
-                      hintStyle: TextStyle(fontSize: 20),
-                      contentPadding:
-                          EdgeInsets.symmetric(vertical: 27, horizontal: 10),
+                      hintStyle: const TextStyle(fontSize: 20),
+                      contentPadding: const EdgeInsets.symmetric(
+                          vertical: 27, horizontal: 10),
                       hintText: 'Password',
                       border: InputBorder.none,
                       enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.white),
+                        borderSide: const BorderSide(color: Colors.white),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.black),
+                        borderSide: const BorderSide(color: Colors.black),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       filled: true,
@@ -130,21 +130,21 @@ class _RegisterPageMobileState extends State<RegisterPageMobile> {
                   padding: const EdgeInsets.symmetric(
                       horizontal: 18.0, vertical: 12),
                   child: TextField(
-                    style: TextStyle(fontSize: 20),
+                    style: const TextStyle(fontSize: 20),
                     controller: confirmpasswordcontoller,
                     obscureText: true,
                     decoration: InputDecoration(
-                      hintStyle: TextStyle(fontSize: 20),
-                      contentPadding:
-                          EdgeInsets.symmetric(vertical: 27, horizontal: 10),
+                      hintStyle: const TextStyle(fontSize: 20),
+                      contentPadding: const EdgeInsets.symmetric(
+                          vertical: 27, horizontal: 10),
                       hintText: 'Confirm Password',
                       border: InputBorder.none,
                       enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.white),
+                        borderSide: const BorderSide(color: Colors.white),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.black),
+                        borderSide: const BorderSide(color: Colors.black),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       filled: true,
@@ -152,7 +152,7 @@ class _RegisterPageMobileState extends State<RegisterPageMobile> {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Padding(
@@ -176,13 +176,13 @@ class _RegisterPageMobileState extends State<RegisterPageMobile> {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
+                    const Text(
                       "Already have an account?",
                       style:
                           TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -191,7 +191,7 @@ class _RegisterPageMobileState extends State<RegisterPageMobile> {
                       onTap: widget.onTap,
                       child: Text(
                         " Log in".toUpperCase(),
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
                             color: Colors.blue),

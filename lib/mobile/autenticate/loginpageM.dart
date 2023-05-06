@@ -1,9 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
+
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:zipit/mobile/autenticate/forgotpasswordpageM.dart';
-import 'package:zipit/mobile/autenticate/registerpageM.dart';
 
 class LoginPageMobile extends StatefulWidget {
   final Function()? onTap;
@@ -20,7 +19,7 @@ class _LoginPageMobileState extends State<LoginPageMobile> {
     showDialog(
         context: context,
         builder: ((context) {
-          return Center(
+          return const Center(
             child: CircularProgressIndicator(
               color: Colors.black,
             ),
@@ -72,27 +71,27 @@ class _LoginPageMobileState extends State<LoginPageMobile> {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(
                       horizontal: 18.0, vertical: 12),
                   child: TextField(
-                    style: TextStyle(fontSize: 20),
+                    style: const TextStyle(fontSize: 20),
                     controller: emailcontroller,
                     decoration: InputDecoration(
                       hintStyle: TextStyle(fontSize: 20),
-                      contentPadding:
-                          EdgeInsets.symmetric(vertical: 27, horizontal: 10),
+                      contentPadding: const EdgeInsets.symmetric(
+                          vertical: 27, horizontal: 10),
                       hintText: 'Email',
                       border: InputBorder.none,
                       enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.white),
+                        borderSide: const BorderSide(color: Colors.white),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.black),
+                        borderSide: const BorderSide(color: Colors.black),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       filled: true,
@@ -104,21 +103,21 @@ class _LoginPageMobileState extends State<LoginPageMobile> {
                   padding: const EdgeInsets.symmetric(
                       horizontal: 18.0, vertical: 12),
                   child: TextField(
-                    style: TextStyle(fontSize: 20),
+                    style: const TextStyle(fontSize: 20),
                     controller: passwordcontroller,
                     obscureText: true,
                     decoration: InputDecoration(
                       hintStyle: TextStyle(fontSize: 20),
-                      contentPadding:
-                          EdgeInsets.symmetric(vertical: 27, horizontal: 10),
+                      contentPadding: const EdgeInsets.symmetric(
+                          vertical: 27, horizontal: 10),
                       hintText: 'Password',
                       border: InputBorder.none,
                       enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.white),
+                        borderSide: const BorderSide(color: Colors.white),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.black),
+                        borderSide: const BorderSide(color: Colors.black),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       filled: true,
@@ -138,7 +137,7 @@ class _LoginPageMobileState extends State<LoginPageMobile> {
                             return forgotPasswordPageMobile();
                           })));
                         }),
-                        child: Text(
+                        child: const Text(
                           "Forgot Password",
                           style: TextStyle(
                               fontSize: 20,
@@ -149,11 +148,11 @@ class _LoginPageMobileState extends State<LoginPageMobile> {
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 50,
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                  padding: EdgeInsets.symmetric(horizontal: 18.0),
                   child: GestureDetector(
                     onTap: Signin,
                     child: Container(
@@ -173,13 +172,13 @@ class _LoginPageMobileState extends State<LoginPageMobile> {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
+                    const Text(
                       "Dont have an account?",
                       style:
                           TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -188,7 +187,7 @@ class _LoginPageMobileState extends State<LoginPageMobile> {
                       onTap: widget.onTap,
                       child: Text(
                         " Register".toUpperCase(),
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
                             color: Colors.blue),

@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
+
 import 'package:flutter/material.dart';
 
 class forgotPasswordPageMobile extends StatefulWidget {
-  forgotPasswordPageMobile({Key? key}) : super(key: key);
+  const forgotPasswordPageMobile({Key? key}) : super(key: key);
 
   @override
   State<forgotPasswordPageMobile> createState() =>
@@ -19,7 +19,7 @@ class _forgotPasswordPageMobileState extends State<forgotPasswordPageMobile> {
       showDialog(
           context: context,
           builder: ((context) {
-            return AlertDialog(
+            return const AlertDialog(
               content: Text('Password reset link sent! Check your mail'),
             );
           }));
@@ -38,7 +38,7 @@ class _forgotPasswordPageMobileState extends State<forgotPasswordPageMobile> {
   @override
   void dispose() {
     emailcontroller.dispose();
-    // TODO: implement dispose
+
     super.dispose();
   }
 
@@ -55,8 +55,8 @@ class _forgotPasswordPageMobileState extends State<forgotPasswordPageMobile> {
           child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.0),
             child: Text("Enter your email to reset password ⬇️",
                 textAlign: TextAlign.center, style: TextStyle(fontSize: 25)),
           ),
@@ -68,11 +68,11 @@ class _forgotPasswordPageMobileState extends State<forgotPasswordPageMobile> {
                 hintText: 'Email',
                 border: InputBorder.none,
                 enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
+                  borderSide: const BorderSide(color: Colors.white),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.black),
+                  borderSide: const BorderSide(color: Colors.black),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 filled: true,
@@ -88,7 +88,7 @@ class _forgotPasswordPageMobileState extends State<forgotPasswordPageMobile> {
                 color: Colors.black,
                 borderRadius: BorderRadius.circular(12),
               ),
-              child: Center(
+              child: const Center(
                 child: Text(
                   "Reset Password",
                   style: TextStyle(

@@ -7,7 +7,7 @@ import 'package:zipit/tablet/componets/note_cardT.dart';
 import 'package:zipit/tablet/screens/new_note_screenT.dart';
 
 class HomePageTab extends StatefulWidget {
-  HomePageTab({Key? key}) : super(key: key);
+  const HomePageTab({Key? key}) : super(key: key);
 
   @override
   State<HomePageTab> createState() => _HomePageTabState();
@@ -23,50 +23,14 @@ class _HomePageTabState extends State<HomePageTab> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      drawer: Drawer(
-        backgroundColor: Colors.black,
-        child: ListView(children: [
-          UserAccountsDrawerHeader(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(24),
-                    bottomRight: Radius.circular(24)),
-                color: Colors.white,
-              ),
-              accountName: Text(
-                user.email!,
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold),
-              ),
-              accountEmail: Text(
-                '',
-                style: TextStyle(color: Colors.black, fontSize: 25),
-              )),
-          SizedBox(
-            height: 50,
-          ),
-          ListTile(
-            onTap: SignOut,
-            textColor: Colors.white,
-            leading: Icon(
-              Icons.logout_outlined,
-              color: Colors.white,
-              size: 25,
-            ),
-            title: Text(
-              "Logout",
-              style: TextStyle(fontSize: 25),
-            ),
-          )
-        ]),
-      ),
       appBar: AppBar(
         backgroundColor: Colors.black,
         title: Text("Z I P I T"),
         centerTitle: true,
         elevation: 0,
+        actions: [
+          IconButton(onPressed: SignOut, icon: const Icon(Icons.logout))
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -81,7 +45,7 @@ class _HomePageTabState extends State<HomePageTab> {
                   fontWeight: FontWeight.bold,
                   fontSize: 22),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Expanded(
@@ -90,7 +54,7 @@ class _HomePageTabState extends State<HomePageTab> {
                     FirebaseFirestore.instance.collection("notes").snapshots(),
                 builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return Center(
+                    return const Center(
                       child: CircularProgressIndicator(
                         color: Colors.black,
                       ),
@@ -98,8 +62,9 @@ class _HomePageTabState extends State<HomePageTab> {
                   }
                   if (snapshot.hasData) {
                     return GridView(
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 3),
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 3),
                       children: snapshot.data!.docs
                           .map((note) => noteCardTablet(() {
                                 Navigator.push(context, MaterialPageRoute(
@@ -113,7 +78,8 @@ class _HomePageTabState extends State<HomePageTab> {
                   }
                   return Text(
                     "there's no Notes",
-                    style: GoogleFonts.nunito(color: Colors.white, fontSize: 20),
+                    style:
+                        GoogleFonts.nunito(color: Colors.white, fontSize: 20),
                   );
                 },
               ),
@@ -128,11 +94,11 @@ class _HomePageTabState extends State<HomePageTab> {
             return NewNoteScreenTablet();
           })));
         },
-        label: Text(
+        label: const Text(
           "New Note",
           style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
         ),
-        icon: Icon(
+        icon: const Icon(
           Icons.add,
           color: Colors.black,
         ),

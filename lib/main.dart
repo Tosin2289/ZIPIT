@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: ScreenSize(),
     );
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
 }
 
 class ScreenSize extends StatefulWidget {
-  ScreenSize({Key? key}) : super(key: key);
+  const ScreenSize({Key? key}) : super(key: key);
 
   @override
   State<ScreenSize> createState() => _ScreenSizeState();

@@ -16,7 +16,7 @@ class _NoteReaderTabletState extends State<NoteReaderTablet> {
     return Scaffold(
       backgroundColor: AppStyleTablet.cardsColorT[color_id],
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.black),
+        iconTheme: const IconThemeData(color: Colors.black),
         elevation: 0,
         backgroundColor: AppStyleTablet.cardsColorT[color_id],
       ),
@@ -29,14 +29,14 @@ class _NoteReaderTabletState extends State<NoteReaderTablet> {
               widget.doc["note_title"],
               style: AppStyleTablet.mainTitleTablet,
             ),
-            SizedBox(
+            const SizedBox(
               height: 4,
             ),
             Text(
               widget.doc["creation_date"],
               style: AppStyleTablet.dateTitleTablet,
             ),
-            SizedBox(
+            const SizedBox(
               height: 28,
             ),
             Text(

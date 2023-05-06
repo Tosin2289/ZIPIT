@@ -6,8 +6,8 @@ Widget noteCardMobile(Function()? onTap, QueryDocumentSnapshot doc) {
   return InkWell(
     onTap: onTap,
     child: Container(
-      padding: EdgeInsets.all(8),
-      margin: EdgeInsets.all(8),
+      padding: const EdgeInsets.all(8),
+      margin: const EdgeInsets.all(8),
       decoration: BoxDecoration(
           color: AppStyleMoile.cardsColorM[doc['color_id']],
           borderRadius: BorderRadius.circular(8.0)),
@@ -19,14 +19,14 @@ Widget noteCardMobile(Function()? onTap, QueryDocumentSnapshot doc) {
               doc["note_title"],
               style: AppStyleMoile.mainTitleMobile,
             ),
-            SizedBox(
+            const SizedBox(
               height: 4,
             ),
             Text(
               doc["creation_date"],
               style: AppStyleMoile.dateTitleMobile,
             ),
-            SizedBox(
+            const SizedBox(
               height: 8,
             ),
             Text(

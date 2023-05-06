@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:lottie/lottie.dart';
 import 'package:zipit/mobile/autenticate/auth_pageM.dart';
-import 'package:zipit/mobile/autenticate/loginpageM.dart';
 
 class IntroScreenMobile extends StatelessWidget {
   const IntroScreenMobile({Key? key}) : super(key: key);
@@ -15,15 +14,15 @@ class IntroScreenMobile extends StatelessWidget {
           padding: const EdgeInsets.all(12.0),
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Lottie.asset('assets/writingb.json'),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Row(
-                children: [
+                children: const [
                   Text(
                     "Welcome",
                     style: TextStyle(
@@ -33,7 +32,7 @@ class IntroScreenMobile extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               RichText(
                 text: const TextSpan(
                   text: 'ZIPIT ',
@@ -52,7 +51,7 @@ class IntroScreenMobile extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 50,
               ),
               Padding(
@@ -61,7 +60,7 @@ class IntroScreenMobile extends StatelessWidget {
                   onTap: () {
                     Navigator.pushReplacement(context,
                         MaterialPageRoute(builder: ((context) {
-                      return AuthPageMobile();
+                      return const AuthPageMobile();
                     })));
                   },
                   child: Container(
@@ -73,7 +72,7 @@ class IntroScreenMobile extends StatelessWidget {
                     child: Center(
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
+                        children: const [
                           Text(
                             "Login with email",
                             style: TextStyle(

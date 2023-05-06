@@ -67,7 +67,7 @@ class _NewNoteScreenMobileState extends State<NewNoteScreenMobile> {
         backgroundColor: Colors.black,
         onPressed: (() async {
           FirebaseFirestore.instance
-              .collection('notes')
+              .collection('thoughts')
               .add({
                 'note_title': titleController.text,
                 'creation_date': date,

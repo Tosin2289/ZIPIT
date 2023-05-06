@@ -24,49 +24,14 @@ class _HomePageMobileState extends State<HomePageMobile> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      drawer: Drawer(
-        backgroundColor: Colors.black,
-        child: ListView(children: [
-          UserAccountsDrawerHeader(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(20),
-                    bottomRight: Radius.circular(20)),
-                color: Colors.white,
-              ),
-              accountName: Text(
-                user.email!,
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold),
-              ),
-              accountEmail: Text(
-                '',
-                style: TextStyle(color: Colors.black, fontSize: 18),
-              )),
-          SizedBox(
-            height: 30,
-          ),
-          ListTile(
-            onTap: SignOut,
-            textColor: Colors.white,
-            leading: Icon(
-              Icons.logout_outlined,
-              color: Colors.white,
-            ),
-            title: Text(
-              "Logout",
-              style: TextStyle(fontSize: 20),
-            ),
-          )
-        ]),
-      ),
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: Text("Z I P I T"),
+        title: const Text("Z I P I T"),
         centerTitle: true,
         elevation: 0,
+        actions: [
+          IconButton(onPressed: SignOut, icon: const Icon(Icons.logout))
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -81,7 +46,7 @@ class _HomePageMobileState extends State<HomePageMobile> {
                   fontWeight: FontWeight.bold,
                   fontSize: 22),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Expanded(
@@ -90,7 +55,7 @@ class _HomePageMobileState extends State<HomePageMobile> {
                     FirebaseFirestore.instance.collection("notes").snapshots(),
                 builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return Center(
+                    return const Center(
                       child: CircularProgressIndicator(
                         color: Colors.black,
                       ),
@@ -98,8 +63,9 @@ class _HomePageMobileState extends State<HomePageMobile> {
                   }
                   if (snapshot.hasData) {
                     return GridView(
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2),
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2),
                       children: snapshot.data!.docs
                           .map((note) => noteCardMobile(() {
                                 Navigator.push(context, MaterialPageRoute(
@@ -128,11 +94,11 @@ class _HomePageMobileState extends State<HomePageMobile> {
             return NewNoteScreenMobile();
           })));
         },
-        label: Text(
+        label: const Text(
           "New Note",
           style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
         ),
-        icon: Icon(
+        icon: const Icon(
           Icons.add,
           color: Colors.black,
         ),

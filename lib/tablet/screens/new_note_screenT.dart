@@ -4,7 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:zipit/tablet/style/app_styleT.dart';
 
 class NewNoteScreenTablet extends StatefulWidget {
-  NewNoteScreenTablet({Key? key}) : super(key: key);
+  const NewNoteScreenTablet({Key? key}) : super(key: key);
 
   @override
   State<NewNoteScreenTablet> createState() => _NewNoteScreenTabletState();
@@ -22,8 +22,8 @@ class _NewNoteScreenTabletState extends State<NewNoteScreenTablet> {
       appBar: AppBar(
         backgroundColor: AppStyleTablet.cardsColorT[color_id],
         elevation: 0.0,
-        iconTheme: IconThemeData(color: Colors.black),
-        title: Text(
+        iconTheme: const IconThemeData(color: Colors.black),
+        title: const Text(
           "Add a new Note",
           style: TextStyle(color: Colors.black),
         ),
@@ -40,14 +40,14 @@ class _NewNoteScreenTabletState extends State<NewNoteScreenTablet> {
               decoration:
                   InputDecoration(border: InputBorder.none, hintText: 'Title'),
             ),
-            SizedBox(
+            const SizedBox(
               height: 8.0,
             ),
             Text(
               date,
               style: AppStyleTablet.dateTitleTablet,
             ),
-            SizedBox(
+            const SizedBox(
               height: 28.0,
             ),
             TextField(
@@ -56,8 +56,8 @@ class _NewNoteScreenTabletState extends State<NewNoteScreenTablet> {
               scribbleEnabled: true,
               style: AppStyleTablet.mainContentTablet,
               controller: mainController,
-              decoration:
-                  InputDecoration(border: InputBorder.none, hintText: 'Text'),
+              decoration: const InputDecoration(
+                  border: InputBorder.none, hintText: 'Text'),
             ),
           ],
         ),
@@ -88,7 +88,7 @@ class _NewNoteScreenTabletState extends State<NewNoteScreenTablet> {
                     margin: EdgeInsets.symmetric(vertical: 20),
                   )));
         }),
-        child: Icon(Icons.save_outlined),
+        child: const Icon(Icons.save_outlined),
       ),
     );
   }
