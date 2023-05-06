@@ -46,7 +46,9 @@ class IntroScreenMobile extends StatelessWidget {
                         text:
                             'is an online diary app,it safe,secure and reliable.',
                         style: TextStyle(
-                            fontWeight: FontWeight.normal, fontSize: 20)),
+                          fontWeight: FontWeight.normal,
+                          fontSize: 20,
+                        )),
                   ],
                 ),
               ),
