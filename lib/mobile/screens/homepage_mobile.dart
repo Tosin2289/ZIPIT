@@ -51,8 +51,9 @@ class _HomePageMobileState extends State<HomePageMobile> {
             ),
             Expanded(
               child: StreamBuilder<QuerySnapshot>(
-                stream:
-                    FirebaseFirestore.instance.collection("notes").snapshots(),
+                stream: FirebaseFirestore.instance
+                    .collection("thoughts")
+                    .snapshots(),
                 builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
                     return const Center(

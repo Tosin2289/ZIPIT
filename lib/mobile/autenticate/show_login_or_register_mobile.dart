@@ -24,9 +24,7 @@ class _ShowLoginorRegisterPageMobileState
     if (showLoginPage) {
       return LoginPageMobile(onTap: tooglePage);
     } else {
-      return RegisterPageMobile(
-        onTap: tooglePage,
-      );
+      return RegisterPageMobile(onTap: tooglePage);
     }
     ;
   }
