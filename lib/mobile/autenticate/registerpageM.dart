@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
@@ -12,6 +13,7 @@ class RegisterPageMobile extends StatefulWidget {
 
 class _RegisterPageMobileState extends State<RegisterPageMobile> {
   final emailcontoller = TextEditingController();
+  final usernamecontoller = TextEditingController();
   final passwordcontoller = TextEditingController();
   final confirmpasswordcontoller = TextEditingController();
   void SignUserUp() async {
@@ -26,8 +28,14 @@ class _RegisterPageMobileState extends State<RegisterPageMobile> {
         }));
     try {
       if (passwordcontoller.text == confirmpasswordcontoller.text) {
-        await FirebaseAuth.instance.createUserWithEmailAndPassword(
-            email: emailcontoller.text, password: passwordcontoller.text);
+        UserCredential userCredentials = await FirebaseAuth.instance
+            .createUserWithEmailAndPassword(
+                email: emailcontoller.text, password: passwordcontoller.text);
+        String userId = userCredentials.user!.uid;
+        await FirebaseFirestore.instance
+            .collection("users")
+            .doc(userId)
+            .set({'Email': emailcontoller.text, 'Username': usernamecontoller.text});
       } else {
         showerrormessage("Password do not match!");
       }
@@ -51,6 +59,7 @@ class _RegisterPageMobileState extends State<RegisterPageMobile> {
   @override
   void dispose() {
     emailcontoller.dispose();
+    usernamecontoller.dispose();
     passwordcontoller.dispose();
     confirmpasswordcontoller.dispose();
     super.dispose();
@@ -74,6 +83,31 @@ class _RegisterPageMobileState extends State<RegisterPageMobile> {
                       fit: BoxFit.fill,
                     ),
                   ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 18.0, vertical: 12),
+                  child: TextField(
+                    style: const TextStyle(fontSize: 20),
+                    controller: usernamecontoller,
+                    decoration: InputDecoration(
+                      hintStyle: const TextStyle(fontSize: 20),
+                      contentPadding: const EdgeInsets.symmetric(
+                          vertical: 27, horizontal: 10),
+                      hintText: 'Username',
+                      border: InputBorder.none,
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(color: Colors.white),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(color: Colors.black),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      filled: true,
+                      fillColor: Colors.grey[200],
+                    ),
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(

@@ -16,6 +16,7 @@ class HomePageMobile extends StatefulWidget {
 
 class _HomePageMobileState extends State<HomePageMobile> {
   final user = FirebaseAuth.instance.currentUser!;
+  var userid = FirebaseAuth.instance.currentUser!.uid;
   void SignOut() {
     FirebaseAuth.instance.signOut();
   }
@@ -79,7 +80,7 @@ class _HomePageMobileState extends State<HomePageMobile> {
                     );
                   }
                   return Text(
-                    "there's no Notes",
+                    "no notes found",
                     style: GoogleFonts.nunito(color: Colors.white),
                   );
                 },

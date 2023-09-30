@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:zipit/mobile/style/app_styleM.dart';
 
@@ -23,8 +24,8 @@ class _NewNoteScreenMobileState extends State<NewNoteScreenMobile> {
       appBar: AppBar(
         backgroundColor: AppStyleMoile.cardsColorM[color_id],
         elevation: 0.0,
-        iconTheme: IconThemeData(color: Colors.black),
-        title: Text(
+        iconTheme: const IconThemeData(color: Colors.black),
+        title: const Text(
           "Add a new Note",
           style: TextStyle(color: Colors.black),
         ),
@@ -38,17 +39,17 @@ class _NewNoteScreenMobileState extends State<NewNoteScreenMobile> {
               scribbleEnabled: true,
               style: AppStyleMoile.mainTitleMobile,
               controller: titleController,
-              decoration:
-                  InputDecoration(border: InputBorder.none, hintText: 'Title'),
+              decoration: const InputDecoration(
+                  border: InputBorder.none, hintText: 'Title'),
             ),
-            SizedBox(
+            const SizedBox(
               height: 8.0,
             ),
             Text(
               date,
               style: AppStyleMoile.dateTitleMobile,
             ),
-            SizedBox(
+            const SizedBox(
               height: 28.0,
             ),
             TextField(
@@ -57,8 +58,8 @@ class _NewNoteScreenMobileState extends State<NewNoteScreenMobile> {
               scribbleEnabled: true,
               style: AppStyleMoile.mainContentMobile,
               controller: mainController,
-              decoration:
-                  InputDecoration(border: InputBorder.none, hintText: 'Text'),
+              decoration: const InputDecoration(
+                  border: InputBorder.none, hintText: 'Text'),
             ),
           ],
         ),
@@ -66,16 +67,17 @@ class _NewNoteScreenMobileState extends State<NewNoteScreenMobile> {
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.black,
         onPressed: (() async {
+          var user = FirebaseAuth.instance.currentUser!.uid;
           FirebaseFirestore.instance
               .collection('thoughts')
-              .add({
+              .doc(user)
+              .set({
                 'note_title': titleController.text,
                 'creation_date': date,
                 'note_content': mainController.text,
                 'color_id': color_id
               })
               .then((value) => {
-                    print(value.id),
                     Navigator.pop(context),
                   })
               .catchError((error) =>
