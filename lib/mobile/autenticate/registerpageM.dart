@@ -32,10 +32,9 @@ class _RegisterPageMobileState extends State<RegisterPageMobile> {
             .createUserWithEmailAndPassword(
                 email: emailcontoller.text, password: passwordcontoller.text);
         String userId = userCredentials.user!.uid;
-        await FirebaseFirestore.instance
-            .collection("users")
-            .doc(userId)
-            .set({'Email': emailcontoller.text, 'Username': usernamecontoller.text});
+        await FirebaseFirestore.instance.collection("users").doc(userId).set(
+            {'Email': emailcontoller.text, 'Username': usernamecontoller.text});
+        if (context.mounted) Navigator.pop(context);
       } else {
         showerrormessage("Password do not match!");
       }
@@ -44,6 +43,7 @@ class _RegisterPageMobileState extends State<RegisterPageMobile> {
       Navigator.pop(context);
       showerrormessage(e.code);
     }
+    Navigator.of(context).pop();
   }
 
   void showerrormessage(String message) {

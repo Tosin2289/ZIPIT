@@ -17,6 +17,30 @@ class _NewNoteScreenMobileState extends State<NewNoteScreenMobile> {
   TextEditingController mainController = TextEditingController();
   int color_id = Random().nextInt(AppStyleMoile.cardsColorM.length);
   String date = DateTime.now().toString();
+  final currentUser = FirebaseAuth.instance.currentUser;
+  String userName = "";
+  Future<void> getCurrentUsername() async {
+    try {
+      final userDoc = await FirebaseFirestore.instance
+          .collection('users')
+          .doc(currentUser!.uid)
+          .get();
+      if (mounted) {
+        setState(() {
+          userName = userDoc['Username'];
+        });
+      }
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getCurrentUsername();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,11 +91,11 @@ class _NewNoteScreenMobileState extends State<NewNoteScreenMobile> {
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.black,
         onPressed: (() async {
-          var user = FirebaseAuth.instance.currentUser!.uid;
-          FirebaseFirestore.instance
+          await FirebaseFirestore.instance
               .collection('thoughts')
-              .doc(user)
-              .set({
+              .add({
+                'sender': userName,
+                'id': currentUser!.uid,
                 'note_title': titleController.text,
                 'creation_date': date,
                 'note_content': mainController.text,
@@ -91,7 +115,7 @@ class _NewNoteScreenMobileState extends State<NewNoteScreenMobile> {
                     margin: EdgeInsets.symmetric(vertical: 20),
                   )));
         }),
-        child: Icon(Icons.save_outlined),
+        child: const Icon(Icons.save_outlined),
       ),
     );
   }
