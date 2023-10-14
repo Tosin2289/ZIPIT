@@ -2,21 +2,16 @@
 
 ZIPIT an online diary application made with flutter and firebase
 
-mobile view
+## mobile view
+![Screenshot_1697307434](https://github.com/Tosin2289/ZIPIT/assets/66890167/8b1e0106-e244-44c2-aa38-ccc04282fc5e)
 
-![Screenshot_1673339313](https://user-images.githubusercontent.com/66890167/211503667-95d6fa1a-ecea-4277-beb7-2f93e3928ce4.png)
+![Screenshot_1697307616](https://github.com/Tosin2289/ZIPIT/assets/66890167/61120f39-faf9-413c-b3f5-0141b2f51410)
 
-![Screenshot_1673339354](https://user-images.githubusercontent.com/66890167/211503718-a11994f6-f195-4b5a-bde1-3820ab2f1f25.png)
+![Screenshot_1697307338](https://github.com/Tosin2289/ZIPIT/assets/66890167/885df26f-7322-426a-b47e-6943d9f1d7c4)
 
-![Screenshot_1673339365](https://user-images.githubusercontent.com/66890167/211503766-23ab59e6-13fd-47da-9f20-62999f4f9cd2.png)
+![Screenshot_1697307353](https://github.com/Tosin2289/ZIPIT/assets/66890167/b5870a96-f8a9-4909-b1a4-2041143c5845)
 
-![Screenshot_1673339358](https://user-images.githubusercontent.com/66890167/211503792-706b7619-77b2-4eca-883d-931d3cd84b9b.png)
-
-![Screenshot_1673339332](https://user-images.githubusercontent.com/66890167/211503825-7fe82b59-9cc6-4874-9acd-3c8787d95b3c.png)
-
-![Screenshot_1673339340](https://user-images.githubusercontent.com/66890167/211504665-93fc6f51-d00b-4d77-9062-b89f0427b472.png)
-
-Tablet view
+## Tablet view
 
 <img width="289" alt="Screenshot 2023-01-10 093525" src="https://user-images.githubusercontent.com/66890167/211505050-6d559b35-381e-4255-bc7a-1a456abcb1dd.png">
 
