@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -15,6 +16,30 @@ class _NewNoteScreenTabletState extends State<NewNoteScreenTablet> {
   TextEditingController mainController = TextEditingController();
   int color_id = Random().nextInt(AppStyleTablet.cardsColorT.length);
   String date = DateTime.now().toString();
+  final currentUser = FirebaseAuth.instance.currentUser;
+  String userName = "";
+  Future<void> getCurrentUsername() async {
+    try {
+      final userDoc = await FirebaseFirestore.instance
+          .collection('users')
+          .doc(currentUser!.uid)
+          .get();
+      if (mounted) {
+        setState(() {
+          userName = userDoc['Username'];
+        });
+      }
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getCurrentUsername();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,7 +63,7 @@ class _NewNoteScreenTabletState extends State<NewNoteScreenTablet> {
               style: AppStyleTablet.mainTitleTablet,
               controller: titleController,
               decoration:
-                  InputDecoration(border: InputBorder.none, hintText: 'Title'),
+              const    InputDecoration(border: InputBorder.none, hintText: 'Title'),
             ),
             const SizedBox(
               height: 8.0,
@@ -68,6 +93,8 @@ class _NewNoteScreenTabletState extends State<NewNoteScreenTablet> {
           FirebaseFirestore.instance
               .collection('thoughts')
               .add({
+                'sender': userName,
+                'id': currentUser!.uid,
                 'note_title': titleController.text,
                 'creation_date': date,
                 'note_content': mainController.text,

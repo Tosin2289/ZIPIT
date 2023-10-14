@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
@@ -14,11 +15,12 @@ class _RegisterPageTabletState extends State<RegisterPageTablet> {
   final emailcontoller = TextEditingController();
   final passwordcontoller = TextEditingController();
   final confirmpasswordcontoller = TextEditingController();
+  final usernamecontoller = TextEditingController();
   void SignUserUp() async {
     showDialog(
         context: context,
         builder: ((context) {
-          return Center(
+          return const Center(
             child: CircularProgressIndicator(
               color: Colors.black,
             ),
@@ -26,8 +28,13 @@ class _RegisterPageTabletState extends State<RegisterPageTablet> {
         }));
     try {
       if (passwordcontoller.text == confirmpasswordcontoller.text) {
-        await FirebaseAuth.instance.createUserWithEmailAndPassword(
-            email: emailcontoller.text, password: passwordcontoller.text);
+        UserCredential userCredentials = await FirebaseAuth.instance
+            .createUserWithEmailAndPassword(
+                email: emailcontoller.text, password: passwordcontoller.text);
+        String userId = userCredentials.user!.uid;
+        await FirebaseFirestore.instance.collection("users").doc(userId).set(
+            {'Email': emailcontoller.text, 'Username': usernamecontoller.text});
+        if (context.mounted) Navigator.pop(context);
       } else {
         showerrormessage("Password do not match!");
       }
@@ -36,6 +43,7 @@ class _RegisterPageTabletState extends State<RegisterPageTablet> {
       Navigator.pop(context);
       showerrormessage(e.code);
     }
+    Navigator.of(context).pop();
   }
 
   void showerrormessage(String message) {
@@ -71,20 +79,20 @@ class _RegisterPageTabletState extends State<RegisterPageTablet> {
                   padding: const EdgeInsets.symmetric(
                       horizontal: 28.0, vertical: 12),
                   child: TextField(
-                    style: TextStyle(fontSize: 30),
-                    controller: emailcontoller,
+                    style: const TextStyle(fontSize: 30),
+                    controller: usernamecontoller,
                     decoration: InputDecoration(
-                      hintStyle: TextStyle(fontSize: 30),
-                      contentPadding:
-                          EdgeInsets.symmetric(vertical: 37, horizontal: 12),
-                      hintText: 'Email',
+                      hintStyle: const TextStyle(fontSize: 30),
+                      contentPadding: const EdgeInsets.symmetric(
+                          vertical: 37, horizontal: 12),
+                      hintText: 'Username',
                       border: InputBorder.none,
                       enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.white),
+                        borderSide: const BorderSide(color: Colors.white),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.black),
+                        borderSide: const BorderSide(color: Colors.black),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       filled: true,
@@ -96,21 +104,46 @@ class _RegisterPageTabletState extends State<RegisterPageTablet> {
                   padding: const EdgeInsets.symmetric(
                       horizontal: 28.0, vertical: 12),
                   child: TextField(
-                    style: TextStyle(fontSize: 30),
+                    style: const TextStyle(fontSize: 30),
+                    controller: emailcontoller,
+                    decoration: InputDecoration(
+                      hintStyle: const TextStyle(fontSize: 30),
+                      contentPadding: const EdgeInsets.symmetric(
+                          vertical: 37, horizontal: 12),
+                      hintText: 'Email',
+                      border: InputBorder.none,
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(color: Colors.white),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(color: Colors.black),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      filled: true,
+                      fillColor: Colors.grey[200],
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 28.0, vertical: 12),
+                  child: TextField(
+                    style: const TextStyle(fontSize: 30),
                     controller: passwordcontoller,
                     obscureText: true,
                     decoration: InputDecoration(
                       hintStyle: TextStyle(fontSize: 30),
-                      contentPadding:
-                          EdgeInsets.symmetric(vertical: 37, horizontal: 12),
+                      contentPadding: const EdgeInsets.symmetric(
+                          vertical: 37, horizontal: 12),
                       hintText: 'Password',
                       border: InputBorder.none,
                       enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.white),
+                        borderSide: const BorderSide(color: Colors.white),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.black),
+                        borderSide: const BorderSide(color: Colors.black),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       filled: true,
@@ -122,21 +155,21 @@ class _RegisterPageTabletState extends State<RegisterPageTablet> {
                   padding: const EdgeInsets.symmetric(
                       horizontal: 28.0, vertical: 12),
                   child: TextField(
-                    style: TextStyle(fontSize: 30),
+                    style: const TextStyle(fontSize: 30),
                     controller: confirmpasswordcontoller,
                     obscureText: true,
                     decoration: InputDecoration(
-                      hintStyle: TextStyle(fontSize: 30),
-                      contentPadding:
-                          EdgeInsets.symmetric(vertical: 37, horizontal: 12),
+                      hintStyle: const TextStyle(fontSize: 30),
+                      contentPadding: const EdgeInsets.symmetric(
+                          vertical: 37, horizontal: 12),
                       hintText: 'Confirm Password',
                       border: InputBorder.none,
                       enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.white),
+                        borderSide: const BorderSide(color: Colors.white),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.black),
+                        borderSide: const BorderSide(color: Colors.black),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       filled: true,
@@ -144,7 +177,7 @@ class _RegisterPageTabletState extends State<RegisterPageTablet> {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Padding(
@@ -168,13 +201,13 @@ class _RegisterPageTabletState extends State<RegisterPageTablet> {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 40,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
+                    const Text(
                       "Already have an account?",
                       style:
                           TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
@@ -183,7 +216,7 @@ class _RegisterPageTabletState extends State<RegisterPageTablet> {
                       onTap: widget.onTap,
                       child: Text(
                         " Log in".toUpperCase(),
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 30,
                             fontWeight: FontWeight.bold,
                             color: Colors.blue),
