@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:zipit/tablet/autenticate/auth_pageTablet.dart';
-import 'package:zipit/tablet/autenticate/loginpage.dart';
 
 class IntroScreenTablet extends StatelessWidget {
   const IntroScreenTablet({Key? key}) : super(key: key);
@@ -23,7 +23,7 @@ class IntroScreenTablet extends StatelessWidget {
                 children: [
                   Text(
                     "Welcome",
-                    style: TextStyle(
+                    style: GoogleFonts.delius(
                       fontSize: 60,
                       fontWeight: FontWeight.bold,
                     ),
@@ -34,7 +34,7 @@ class IntroScreenTablet extends StatelessWidget {
               Row(
                 children: [
                   RichText(
-                    text: const TextSpan(
+                    text: TextSpan(
                       text: 'ZIPIT ',
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
@@ -44,7 +44,7 @@ class IntroScreenTablet extends StatelessWidget {
                         TextSpan(
                             text:
                                 'is an online diary app,it safe,secure and reliable.',
-                            style: TextStyle(
+                            style: GoogleFonts.delius(
                                 fontWeight: FontWeight.normal, fontSize: 30)),
                       ],
                     ),
@@ -75,7 +75,7 @@ class IntroScreenTablet extends StatelessWidget {
                         children: [
                           Text(
                             "Login with email",
-                            style: TextStyle(
+                            style: GoogleFonts.delius(
                                 fontSize: 32,
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold),

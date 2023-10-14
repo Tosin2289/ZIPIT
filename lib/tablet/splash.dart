@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:zipit/tablet/autenticate/intro.dart';
 import 'package:zipit/tablet/screens/homepage_tab.dart';
@@ -54,7 +55,7 @@ class _SplashTabletState extends State<SplashTablet> {
                           ),
                           child: Text(
                             "Z I P I T",
-                            style: TextStyle(
+                            style: GoogleFonts.delius(
                                 fontSize: 60,
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold),
@@ -75,7 +76,7 @@ class _SplashTabletState extends State<SplashTablet> {
                     ),
                     child: Text(
                       "Made by phenomes".toUpperCase(),
-                      style: TextStyle(
+                      style: GoogleFonts.delius(
                           fontSize: 32,
                           color: Colors.white,
                           fontWeight: FontWeight.bold),

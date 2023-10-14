@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:zipit/mobile/autenticate/forgotpasswordpageM.dart';
 
@@ -78,10 +79,10 @@ class _LoginPageMobileState extends State<LoginPageMobile> {
                   padding: const EdgeInsets.symmetric(
                       horizontal: 18.0, vertical: 12),
                   child: TextField(
-                    style: const TextStyle(fontSize: 20),
+                    style: GoogleFonts.delius(fontSize: 20),
                     controller: emailcontroller,
                     decoration: InputDecoration(
-                      hintStyle: TextStyle(fontSize: 20),
+                      hintStyle: GoogleFonts.delius(fontSize: 20),
                       contentPadding: const EdgeInsets.symmetric(
                           vertical: 27, horizontal: 10),
                       hintText: 'Email',
@@ -103,11 +104,11 @@ class _LoginPageMobileState extends State<LoginPageMobile> {
                   padding: const EdgeInsets.symmetric(
                       horizontal: 18.0, vertical: 12),
                   child: TextField(
-                    style: const TextStyle(fontSize: 20),
+                    style: GoogleFonts.delius(fontSize: 20),
                     controller: passwordcontroller,
                     obscureText: true,
                     decoration: InputDecoration(
-                      hintStyle: TextStyle(fontSize: 20),
+                      hintStyle: GoogleFonts.delius(fontSize: 20),
                       contentPadding: const EdgeInsets.symmetric(
                           vertical: 27, horizontal: 10),
                       hintText: 'Password',
@@ -137,9 +138,9 @@ class _LoginPageMobileState extends State<LoginPageMobile> {
                             return forgotPasswordPageMobile();
                           })));
                         }),
-                        child: const Text(
+                        child: Text(
                           "Forgot Password",
-                          style: TextStyle(
+                          style: GoogleFonts.delius(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
                               color: Colors.blue),
@@ -159,7 +160,7 @@ class _LoginPageMobileState extends State<LoginPageMobile> {
                       child: Center(
                           child: Text(
                         "Login",
-                        style: TextStyle(
+                        style: GoogleFonts.delius(
                             letterSpacing: 1.5,
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
@@ -178,16 +179,16 @@ class _LoginPageMobileState extends State<LoginPageMobile> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text(
+                    Text(
                       "Dont have an account?",
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                      style: GoogleFonts.delius(
+                          fontSize: 20, fontWeight: FontWeight.bold),
                     ),
                     GestureDetector(
                       onTap: widget.onTap,
                       child: Text(
                         " Register".toUpperCase(),
-                        style: const TextStyle(
+                        style: GoogleFonts.delius(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
                             color: Colors.blue),

@@ -18,9 +18,9 @@ class AppStyleMoile {
     Colors.cyan.shade200
   ];
   static TextStyle mainTitleMobile =
-      GoogleFonts.roboto(fontSize: 22.0, fontWeight: FontWeight.bold);
+      GoogleFonts.indieFlower(fontSize: 22.0, fontWeight: FontWeight.bold);
   static TextStyle mainContentMobile =
-      GoogleFonts.nunito(fontSize: 18.0, fontWeight: FontWeight.normal);
+      GoogleFonts.indieFlower(fontSize: 18.0, fontWeight: FontWeight.normal);
   static TextStyle dateTitleMobile =
-      GoogleFonts.nunito(fontSize: 15.0, fontWeight: FontWeight.w500);
+      GoogleFonts.indieFlower(fontSize: 15.0, fontWeight: FontWeight.w500);
 }

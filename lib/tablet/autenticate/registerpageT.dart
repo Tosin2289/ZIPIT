@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 
 class RegisterPageTablet extends StatefulWidget {
@@ -79,10 +80,10 @@ class _RegisterPageTabletState extends State<RegisterPageTablet> {
                   padding: const EdgeInsets.symmetric(
                       horizontal: 28.0, vertical: 12),
                   child: TextField(
-                    style: const TextStyle(fontSize: 30),
+                    style: GoogleFonts.delius(fontSize: 30),
                     controller: usernamecontoller,
                     decoration: InputDecoration(
-                      hintStyle: const TextStyle(fontSize: 30),
+                      hintStyle: GoogleFonts.delius(fontSize: 30),
                       contentPadding: const EdgeInsets.symmetric(
                           vertical: 37, horizontal: 12),
                       hintText: 'Username',
@@ -104,10 +105,10 @@ class _RegisterPageTabletState extends State<RegisterPageTablet> {
                   padding: const EdgeInsets.symmetric(
                       horizontal: 28.0, vertical: 12),
                   child: TextField(
-                    style: const TextStyle(fontSize: 30),
+                    style: GoogleFonts.delius(fontSize: 30),
                     controller: emailcontoller,
                     decoration: InputDecoration(
-                      hintStyle: const TextStyle(fontSize: 30),
+                      hintStyle: GoogleFonts.delius(fontSize: 30),
                       contentPadding: const EdgeInsets.symmetric(
                           vertical: 37, horizontal: 12),
                       hintText: 'Email',
@@ -129,11 +130,11 @@ class _RegisterPageTabletState extends State<RegisterPageTablet> {
                   padding: const EdgeInsets.symmetric(
                       horizontal: 28.0, vertical: 12),
                   child: TextField(
-                    style: const TextStyle(fontSize: 30),
+                    style: GoogleFonts.delius(fontSize: 30),
                     controller: passwordcontoller,
                     obscureText: true,
                     decoration: InputDecoration(
-                      hintStyle: TextStyle(fontSize: 30),
+                      hintStyle: GoogleFonts.delius(fontSize: 30),
                       contentPadding: const EdgeInsets.symmetric(
                           vertical: 37, horizontal: 12),
                       hintText: 'Password',
@@ -155,11 +156,11 @@ class _RegisterPageTabletState extends State<RegisterPageTablet> {
                   padding: const EdgeInsets.symmetric(
                       horizontal: 28.0, vertical: 12),
                   child: TextField(
-                    style: const TextStyle(fontSize: 30),
+                    style: GoogleFonts.delius(fontSize: 30),
                     controller: confirmpasswordcontoller,
                     obscureText: true,
                     decoration: InputDecoration(
-                      hintStyle: const TextStyle(fontSize: 30),
+                      hintStyle: GoogleFonts.delius(fontSize: 30),
                       contentPadding: const EdgeInsets.symmetric(
                           vertical: 37, horizontal: 12),
                       hintText: 'Confirm Password',
@@ -188,7 +189,7 @@ class _RegisterPageTabletState extends State<RegisterPageTablet> {
                       child: Center(
                           child: Text(
                         "Register",
-                        style: TextStyle(
+                        style: GoogleFonts.delius(
                             letterSpacing: 1.5,
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
@@ -207,16 +208,16 @@ class _RegisterPageTabletState extends State<RegisterPageTablet> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text(
+                    Text(
                       "Already have an account?",
-                      style:
-                          TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                      style: GoogleFonts.delius(
+                          fontSize: 30, fontWeight: FontWeight.bold),
                     ),
                     GestureDetector(
                       onTap: widget.onTap,
                       child: Text(
                         " Log in".toUpperCase(),
-                        style: const TextStyle(
+                        style: GoogleFonts.delius(
                             fontSize: 30,
                             fontWeight: FontWeight.bold,
                             color: Colors.blue),

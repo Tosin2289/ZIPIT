@@ -65,7 +65,7 @@ class _HomePageMobileState extends State<HomePageMobile> {
           children: [
             Text(
               "Your recent thoughts",
-              style: GoogleFonts.roboto(
+              style: GoogleFonts.indieFlower(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
                   fontSize: 22),
@@ -105,7 +105,7 @@ class _HomePageMobileState extends State<HomePageMobile> {
                   }
                   return Text(
                     "no notes found",
-                    style: GoogleFonts.nunito(color: Colors.white),
+                    style: GoogleFonts.indieFlower(color: Colors.white),
                   );
                 },
               ),
@@ -120,9 +120,9 @@ class _HomePageMobileState extends State<HomePageMobile> {
             return const NewNoteScreenMobile();
           })));
         },
-        label: const Text(
+        label: Text(
           "New Note",
-          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+          style: GoogleFonts.indieFlower(color: Colors.black, fontWeight: FontWeight.bold),
         ),
         icon: const Icon(
           Icons.add,

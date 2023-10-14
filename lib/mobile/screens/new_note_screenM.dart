@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:zipit/mobile/style/app_styleM.dart';
 
 class NewNoteScreenMobile extends StatefulWidget {
@@ -49,9 +50,9 @@ class _NewNoteScreenMobileState extends State<NewNoteScreenMobile> {
         backgroundColor: AppStyleMoile.cardsColorM[color_id],
         elevation: 0.0,
         iconTheme: const IconThemeData(color: Colors.black),
-        title: const Text(
+        title: Text(
           "Add a new Note",
-          style: TextStyle(color: Colors.black),
+          style: GoogleFonts.indieFlower(color: Colors.black),
         ),
       ),
       body: Padding(

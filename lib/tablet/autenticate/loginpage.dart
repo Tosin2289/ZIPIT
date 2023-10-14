@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:zipit/tablet/autenticate/forgotpasswordpageT.dart';
 
@@ -131,7 +132,7 @@ class _LoginPageTabletState extends State<LoginPageTablet> {
                         }),
                         child: Text(
                           "Forgot Password",
-                          style: TextStyle(
+                          style: GoogleFonts.delius(
                               fontSize: 25,
                               fontWeight: FontWeight.bold,
                               color: Colors.blue),

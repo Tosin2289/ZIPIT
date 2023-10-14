@@ -65,7 +65,7 @@ class _HomePageTabState extends State<HomePageTab> {
           children: [
             Text(
               "Your recent thoughts",
-              style: GoogleFonts.roboto(
+              style: GoogleFonts.indieFlower(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
                   fontSize: 22),
@@ -105,8 +105,8 @@ class _HomePageTabState extends State<HomePageTab> {
                   }
                   return Text(
                     "there's no Notes",
-                    style:
-                        GoogleFonts.nunito(color: Colors.white, fontSize: 20),
+                    style: GoogleFonts.indieFlower(
+                        color: Colors.white, fontSize: 20),
                   );
                 },
               ),

@@ -19,9 +19,9 @@ class AppStyleTablet {
     Colors.cyan.shade200
   ];
   static TextStyle mainTitleTablet =
-      GoogleFonts.roboto(fontSize: 24.0, fontWeight: FontWeight.bold);
+      GoogleFonts.indieFlower(fontSize: 28.0, fontWeight: FontWeight.bold);
   static TextStyle mainContentTablet =
-      GoogleFonts.nunito(fontSize: 20.0, fontWeight: FontWeight.normal);
+      GoogleFonts.indieFlower(fontSize: 24.0, fontWeight: FontWeight.normal);
   static TextStyle dateTitleTablet =
-      GoogleFonts.nunito(fontSize: 16.0, fontWeight: FontWeight.w500);
+      GoogleFonts.indieFlower(fontSize: 18.0, fontWeight: FontWeight.w500);
 }

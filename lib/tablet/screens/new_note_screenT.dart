@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:zipit/tablet/style/app_styleT.dart';
 
 class NewNoteScreenTablet extends StatefulWidget {
@@ -48,9 +49,9 @@ class _NewNoteScreenTabletState extends State<NewNoteScreenTablet> {
         backgroundColor: AppStyleTablet.cardsColorT[color_id],
         elevation: 0.0,
         iconTheme: const IconThemeData(color: Colors.black),
-        title: const Text(
+        title: Text(
           "Add a new Note",
-          style: TextStyle(color: Colors.black),
+          style: GoogleFonts.indieFlower(color: Colors.black),
         ),
       ),
       body: Padding(
@@ -62,8 +63,8 @@ class _NewNoteScreenTabletState extends State<NewNoteScreenTablet> {
               scribbleEnabled: true,
               style: AppStyleTablet.mainTitleTablet,
               controller: titleController,
-              decoration:
-              const    InputDecoration(border: InputBorder.none, hintText: 'Title'),
+              decoration: const InputDecoration(
+                  border: InputBorder.none, hintText: 'Title'),
             ),
             const SizedBox(
               height: 8.0,

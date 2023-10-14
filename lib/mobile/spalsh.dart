@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:zipit/mobile/autenticate/intro.dart';
 import 'package:zipit/mobile/screens/homepage_mobile.dart';
 
 class SplashMobile extends StatefulWidget {
-  SplashMobile({Key? key}) : super(key: key);
+  const SplashMobile({Key? key}) : super(key: key);
 
   @override
   State<SplashMobile> createState() => _SplashMobileState();
@@ -13,7 +14,6 @@ class SplashMobile extends StatefulWidget {
 class _SplashMobileState extends State<SplashMobile> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     navigatetohome();
   }
@@ -54,7 +54,7 @@ class _SplashMobileState extends State<SplashMobile> {
                           ),
                           child: Text(
                             "Z I P I T",
-                            style: TextStyle(
+                            style: GoogleFonts.delius(
                                 fontSize: 30,
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold),
@@ -75,7 +75,7 @@ class _SplashMobileState extends State<SplashMobile> {
                     ),
                     child: Text(
                       "Made by phenomes".toUpperCase(),
-                      style: TextStyle(
+                      style: GoogleFonts.delius(
                           fontSize: 18,
                           color: Colors.white,
                           fontWeight: FontWeight.bold),

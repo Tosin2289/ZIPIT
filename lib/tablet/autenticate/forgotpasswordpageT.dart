@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ForgotPasswordPageTablet extends StatefulWidget {
   ForgotPasswordPageTablet({Key? key}) : super(key: key);
@@ -50,7 +51,8 @@ class _ForgotPasswordPageTabletState extends State<ForgotPasswordPageTablet> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 26.0),
             child: Text("Enter your email to reset password ⬇️",
-                textAlign: TextAlign.center, style: TextStyle(fontSize: 35)),
+                textAlign: TextAlign.center,
+                style: GoogleFonts.delius(fontSize: 35)),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 28.0, vertical: 12),
@@ -90,7 +92,7 @@ class _ForgotPasswordPageTabletState extends State<ForgotPasswordPageTablet> {
               child: Center(
                 child: Text(
                   "Reset Password",
-                  style: TextStyle(
+                  style: GoogleFonts.delius(
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
                       color: Colors.white),

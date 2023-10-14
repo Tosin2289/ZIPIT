@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'package:lottie/lottie.dart';
 import 'package:zipit/mobile/autenticate/auth_pageM.dart';
@@ -22,10 +23,10 @@ class IntroScreenMobile extends StatelessWidget {
                 height: 20,
               ),
               Row(
-                children: const [
+                children: [
                   Text(
                     "Welcome",
-                    style: TextStyle(
+                    style: GoogleFonts.delius(
                       fontSize: 40,
                       fontWeight: FontWeight.bold,
                     ),
@@ -34,20 +35,18 @@ class IntroScreenMobile extends StatelessWidget {
               ),
               const SizedBox(height: 30),
               RichText(
-                text: const TextSpan(
+                text: TextSpan(
                   text: 'ZIPIT ',
-                  style: TextStyle(
+                  style: GoogleFonts.delius(
                       fontWeight: FontWeight.bold,
                       color: Colors.black,
                       fontSize: 20),
                   children: <TextSpan>[
                     TextSpan(
-                        text:
-                            'is an online diary app,it safe,secure and reliable.',
-                        style: TextStyle(
-                          fontWeight: FontWeight.normal,
-                          fontSize: 20,
-                        )),
+                      text:
+                          'is an online diary app,it safe,secure and reliable.',
+                      style: GoogleFonts.delius(fontSize: 20),
+                    ),
                   ],
                 ),
               ),
@@ -72,10 +71,10 @@ class IntroScreenMobile extends StatelessWidget {
                     child: Center(
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
+                        children: [
                           Text(
                             "Login with email",
-                            style: TextStyle(
+                            style: GoogleFonts.delius(
                                 fontSize: 22,
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold),
