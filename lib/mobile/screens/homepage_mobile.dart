@@ -21,6 +21,25 @@ class _HomePageMobileState extends State<HomePageMobile> {
     FirebaseAuth.instance.signOut();
   }
 
+  final currentUser = FirebaseAuth.instance.currentUser;
+  String userName = "";
+
+  Future<void> fetchuserData() async {
+    try {
+      final userDoc = await FirebaseFirestore.instance
+          .collection('users')
+          .doc(currentUser!.uid)
+          .get();
+      if (mounted) {
+        setState(() {
+          userName = userDoc['Username'];
+        });
+      }
+    } catch (e) {
+      rethrow;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,6 +73,7 @@ class _HomePageMobileState extends State<HomePageMobile> {
               child: StreamBuilder<QuerySnapshot>(
                 stream: FirebaseFirestore.instance
                     .collection("thoughts")
+                    .where('sender', isEqualTo: userName)
                     .snapshots(),
                 builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
