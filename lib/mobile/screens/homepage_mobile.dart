@@ -15,8 +15,6 @@ class HomePageMobile extends StatefulWidget {
 }
 
 class _HomePageMobileState extends State<HomePageMobile> {
-  final user = FirebaseAuth.instance.currentUser!;
-  var userid = FirebaseAuth.instance.currentUser!.uid;
   void SignOut() {
     FirebaseAuth.instance.signOut();
   }
@@ -38,6 +36,12 @@ class _HomePageMobileState extends State<HomePageMobile> {
     } catch (e) {
       rethrow;
     }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    fetchuserData();
   }
 
   @override
@@ -113,7 +117,7 @@ class _HomePageMobileState extends State<HomePageMobile> {
         backgroundColor: Colors.white,
         onPressed: () {
           Navigator.push(context, MaterialPageRoute(builder: ((context) {
-            return NewNoteScreenMobile();
+            return const NewNoteScreenMobile();
           })));
         },
         label: const Text(

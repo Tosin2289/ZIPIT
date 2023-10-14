@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:zipit/mobile/style/app_styleM.dart';
 
 class NewNoteScreenMobile extends StatefulWidget {
-  NewNoteScreenMobile({Key? key}) : super(key: key);
+  const NewNoteScreenMobile({Key? key}) : super(key: key);
 
   @override
   State<NewNoteScreenMobile> createState() => _NewNoteScreenMobileState();

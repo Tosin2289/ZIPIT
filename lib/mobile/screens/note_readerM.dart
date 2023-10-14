@@ -16,7 +16,7 @@ class _NoteReaderScreenMobileState extends State<NoteReaderScreenMobile> {
     return Scaffold(
       backgroundColor: AppStyleMoile.cardsColorM[color_id],
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.black),
+        iconTheme:const IconThemeData(color: Colors.black),
         elevation: 0,
         backgroundColor: AppStyleMoile.cardsColorM[color_id],
       ),
@@ -29,14 +29,14 @@ class _NoteReaderScreenMobileState extends State<NoteReaderScreenMobile> {
               widget.doc["note_title"],
               style: AppStyleMoile.mainTitleMobile,
             ),
-            SizedBox(
+          const  SizedBox(
               height: 4,
             ),
             Text(
               widget.doc["creation_date"],
               style: AppStyleMoile.dateTitleMobile,
             ),
-            SizedBox(
+          const  SizedBox(
               height: 28,
             ),
             Text(

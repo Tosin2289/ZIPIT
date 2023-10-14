@@ -19,13 +19,38 @@ class _HomePageTabState extends State<HomePageTab> {
     FirebaseAuth.instance.signOut();
   }
 
+  final currentUser = FirebaseAuth.instance.currentUser;
+  String userName = "";
+
+  Future<void> fetchuserData() async {
+    try {
+      final userDoc = await FirebaseFirestore.instance
+          .collection('users')
+          .doc(currentUser!.uid)
+          .get();
+      if (mounted) {
+        setState(() {
+          userName = userDoc['Username'];
+        });
+      }
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    fetchuserData();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: Text("Z I P I T"),
+        title: const Text("Z I P I T"),
         centerTitle: true,
         elevation: 0,
         actions: [
@@ -52,6 +77,7 @@ class _HomePageTabState extends State<HomePageTab> {
               child: StreamBuilder<QuerySnapshot>(
                 stream: FirebaseFirestore.instance
                     .collection("thoughts")
+                    .where('sender', isEqualTo: userName)
                     .snapshots(),
                 builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
@@ -92,7 +118,7 @@ class _HomePageTabState extends State<HomePageTab> {
         backgroundColor: Colors.white,
         onPressed: () {
           Navigator.push(context, MaterialPageRoute(builder: ((context) {
-            return NewNoteScreenTablet();
+            return const NewNoteScreenTablet();
           })));
         },
         label: const Text(
