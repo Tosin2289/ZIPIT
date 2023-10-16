@@ -46,15 +46,22 @@ class _HomePageMobileState extends State<HomePageMobile> {
 
   @override
   Widget build(BuildContext context) {
+    var isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: isDark ? Colors.black : Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: const Text("Z I P I T"),
+        backgroundColor: Colors.transparent,
+        title: Text(
+          "Z I P I T",
+          style: TextStyle(color: isDark ? Colors.white : Colors.black),
+        ),
         centerTitle: true,
         elevation: 0,
         actions: [
-          IconButton(onPressed: SignOut, icon: const Icon(Icons.logout))
+          IconButton(
+              onPressed: SignOut,
+              icon: Icon(Icons.logout,
+                  color: isDark ? Colors.white : Colors.black))
         ],
       ),
       body: Padding(
@@ -66,9 +73,9 @@ class _HomePageMobileState extends State<HomePageMobile> {
             Text(
               "Your recent thoughts",
               style: GoogleFonts.indieFlower(
-                  color: Colors.white,
                   fontWeight: FontWeight.bold,
-                  fontSize: 22),
+                  fontSize: 22,
+                  color: isDark ? Colors.white : Colors.black),
             ),
             const SizedBox(
               height: 20,
@@ -114,7 +121,7 @@ class _HomePageMobileState extends State<HomePageMobile> {
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(
-        backgroundColor: Colors.white,
+        backgroundColor: isDark ? Colors.white : Colors.black,
         onPressed: () {
           Navigator.push(context, MaterialPageRoute(builder: ((context) {
             return const NewNoteScreenMobile();
@@ -122,11 +129,13 @@ class _HomePageMobileState extends State<HomePageMobile> {
         },
         label: Text(
           "New Note",
-          style: GoogleFonts.indieFlower(color: Colors.black, fontWeight: FontWeight.bold),
+          style: GoogleFonts.indieFlower(
+              color: !isDark ? Colors.white : Colors.black,
+              fontWeight: FontWeight.bold),
         ),
-        icon: const Icon(
+        icon: Icon(
           Icons.add,
-          color: Colors.black,
+          color: !isDark ? Colors.white : Colors.black,
         ),
       ),
     );

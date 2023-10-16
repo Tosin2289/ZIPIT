@@ -45,7 +45,9 @@ class _forgotPasswordPageMobileState extends State<forgotPasswordPageMobile> {
 
   @override
   Widget build(BuildContext context) {
+    var isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
     return Scaffold(
+      backgroundColor: isDark ? Colors.black : Colors.white,
       appBar: AppBar(
         elevation: 0,
         centerTitle: true,
@@ -60,43 +62,53 @@ class _forgotPasswordPageMobileState extends State<forgotPasswordPageMobile> {
             padding: EdgeInsets.symmetric(horizontal: 16.0),
             child: Text("Enter your email to reset password ⬇️",
                 textAlign: TextAlign.center,
-                style: GoogleFonts.delius(fontSize: 25)),
+                style: GoogleFonts.delius(
+                  fontSize: 25,
+                  color: isDark ? Colors.white : Colors.black,
+                )),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 22),
             child: TextField(
               controller: emailcontroller,
               decoration: InputDecoration(
+                hintStyle: GoogleFonts.delius(
+                    color: !isDark ? Colors.black : Colors.white),
                 hintText: 'Email',
                 border: InputBorder.none,
                 enabledBorder: OutlineInputBorder(
-                  borderSide: const BorderSide(color: Colors.white),
+                  borderSide:
+                      BorderSide(color: !isDark ? Colors.white : Colors.black),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: const BorderSide(color: Colors.black),
+                  borderSide:
+                      BorderSide(color: !isDark ? Colors.black : Colors.white),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 filled: true,
-                fillColor: Colors.grey[200],
+                fillColor: !isDark ? Colors.grey[200] : Colors.grey[700],
               ),
             ),
           ),
           Padding(
             padding: const EdgeInsets.all(12.0),
-            child: Container(
-              height: 60,
-              decoration: BoxDecoration(
-                color: Colors.black,
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: Center(
-                child: Text(
-                  "Reset Password",
-                  style: GoogleFonts.delius(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white),
+            child: GestureDetector(
+              onTap: passwordReset,
+              child: Container(
+                height: 60,
+                decoration: BoxDecoration(
+                  color: !isDark ? Colors.black : Colors.white,
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Center(
+                  child: Text(
+                    "Reset Password",
+                    style: GoogleFonts.delius(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: !isDark ? Colors.white : Colors.black),
+                  ),
                 ),
               ),
             ),

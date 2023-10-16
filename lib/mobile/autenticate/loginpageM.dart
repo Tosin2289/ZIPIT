@@ -55,8 +55,9 @@ class _LoginPageMobileState extends State<LoginPageMobile> {
 
   @override
   Widget build(BuildContext context) {
+    var isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: isDark ? Colors.black : Colors.white,
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
@@ -82,21 +83,25 @@ class _LoginPageMobileState extends State<LoginPageMobile> {
                     style: GoogleFonts.delius(fontSize: 20),
                     controller: emailcontroller,
                     decoration: InputDecoration(
-                      hintStyle: GoogleFonts.delius(fontSize: 20),
+                      hintStyle: GoogleFonts.delius(
+                          fontSize: 20,
+                          color: isDark ? Colors.white70 : Colors.black87),
                       contentPadding: const EdgeInsets.symmetric(
                           vertical: 27, horizontal: 10),
                       hintText: 'Email',
                       border: InputBorder.none,
                       enabledBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(color: Colors.white),
+                        borderSide: BorderSide(
+                            color: !isDark ? Colors.white : Colors.black),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(color: Colors.black),
+                        borderSide: BorderSide(
+                            color: !isDark ? Colors.black : Colors.white),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       filled: true,
-                      fillColor: Colors.grey[200],
+                      fillColor: isDark ? Colors.grey[700] : Colors.grey[200],
                     ),
                   ),
                 ),
@@ -108,21 +113,25 @@ class _LoginPageMobileState extends State<LoginPageMobile> {
                     controller: passwordcontroller,
                     obscureText: true,
                     decoration: InputDecoration(
-                      hintStyle: GoogleFonts.delius(fontSize: 20),
+                      hintStyle: GoogleFonts.delius(
+                          fontSize: 20,
+                          color: isDark ? Colors.white70 : Colors.black87),
                       contentPadding: const EdgeInsets.symmetric(
                           vertical: 27, horizontal: 10),
                       hintText: 'Password',
                       border: InputBorder.none,
                       enabledBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(color: Colors.white),
+                        borderSide: BorderSide(
+                            color: !isDark ? Colors.white : Colors.black),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(color: Colors.black),
+                        borderSide: BorderSide(
+                            color: !isDark ? Colors.white : Colors.black),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       filled: true,
-                      fillColor: Colors.grey[200],
+                      fillColor: isDark ? Colors.grey[700] : Colors.grey[200],
                     ),
                   ),
                 ),
@@ -162,13 +171,13 @@ class _LoginPageMobileState extends State<LoginPageMobile> {
                         "Login",
                         style: GoogleFonts.delius(
                             letterSpacing: 1.5,
-                            color: Colors.white,
+                            color: isDark ? Colors.black : Colors.white,
                             fontWeight: FontWeight.bold,
                             fontSize: 30),
                       )),
                       height: 80,
                       decoration: BoxDecoration(
-                          color: Colors.black,
+                          color: isDark ? Colors.white : Colors.black,
                           borderRadius: BorderRadius.circular(15)),
                     ),
                   ),
@@ -182,7 +191,10 @@ class _LoginPageMobileState extends State<LoginPageMobile> {
                     Text(
                       "Dont have an account?",
                       style: GoogleFonts.delius(
-                          fontSize: 20, fontWeight: FontWeight.bold),
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: isDark ? Colors.white : Colors.black,
+                      ),
                     ),
                     GestureDetector(
                       onTap: widget.onTap,
