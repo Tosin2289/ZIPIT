@@ -68,8 +68,9 @@ class _RegisterPageMobileState extends State<RegisterPageMobile> {
 
   @override
   Widget build(BuildContext context) {
+    var isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: !isDark ? Colors.white : Colors.black,
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
@@ -92,21 +93,25 @@ class _RegisterPageMobileState extends State<RegisterPageMobile> {
                     style: GoogleFonts.delius(fontSize: 20),
                     controller: usernamecontoller,
                     decoration: InputDecoration(
-                      hintStyle: GoogleFonts.delius(fontSize: 20),
+                      hintStyle: GoogleFonts.delius(
+                          fontSize: 20,
+                          color: isDark ? Colors.white70 : Colors.black87),
                       contentPadding: const EdgeInsets.symmetric(
                           vertical: 27, horizontal: 10),
                       hintText: 'Username',
                       border: InputBorder.none,
                       enabledBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(color: Colors.white),
+                        borderSide: BorderSide(
+                            color: !isDark ? Colors.white : Colors.black),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(color: Colors.black),
+                        borderSide: BorderSide(
+                            color: !isDark ? Colors.black : Colors.white),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       filled: true,
-                      fillColor: Colors.grey[200],
+                      fillColor: isDark ? Colors.grey[700] : Colors.grey[200],
                     ),
                   ),
                 ),
@@ -117,21 +122,25 @@ class _RegisterPageMobileState extends State<RegisterPageMobile> {
                     style: GoogleFonts.delius(fontSize: 20),
                     controller: emailcontoller,
                     decoration: InputDecoration(
-                      hintStyle: GoogleFonts.delius(fontSize: 20),
+                      hintStyle: GoogleFonts.delius(
+                          fontSize: 20,
+                          color: isDark ? Colors.white70 : Colors.black87),
                       contentPadding: const EdgeInsets.symmetric(
                           vertical: 27, horizontal: 10),
                       hintText: 'Email',
                       border: InputBorder.none,
                       enabledBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(color: Colors.white),
+                        borderSide: BorderSide(
+                            color: !isDark ? Colors.white : Colors.black),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(color: Colors.black),
+                        borderSide: BorderSide(
+                            color: !isDark ? Colors.black : Colors.white),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       filled: true,
-                      fillColor: Colors.grey[200],
+                      fillColor: isDark ? Colors.grey[700] : Colors.grey[200],
                     ),
                   ),
                 ),
@@ -143,21 +152,25 @@ class _RegisterPageMobileState extends State<RegisterPageMobile> {
                     controller: passwordcontoller,
                     obscureText: true,
                     decoration: InputDecoration(
-                      hintStyle: GoogleFonts.delius(fontSize: 20),
+                      hintStyle: GoogleFonts.delius(
+                          fontSize: 20,
+                          color: isDark ? Colors.white70 : Colors.black87),
                       contentPadding: const EdgeInsets.symmetric(
                           vertical: 27, horizontal: 10),
                       hintText: 'Password',
                       border: InputBorder.none,
                       enabledBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(color: Colors.white),
+                        borderSide: BorderSide(
+                            color: !isDark ? Colors.white : Colors.black),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(color: Colors.black),
+                        borderSide: BorderSide(
+                            color: !isDark ? Colors.black : Colors.white),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       filled: true,
-                      fillColor: Colors.grey[200],
+                      fillColor: isDark ? Colors.grey[700] : Colors.grey[200],
                     ),
                   ),
                 ),
@@ -169,21 +182,25 @@ class _RegisterPageMobileState extends State<RegisterPageMobile> {
                     controller: confirmpasswordcontoller,
                     obscureText: true,
                     decoration: InputDecoration(
-                      hintStyle: GoogleFonts.delius(fontSize: 20),
+                      hintStyle: GoogleFonts.delius(
+                          fontSize: 20,
+                          color: isDark ? Colors.white70 : Colors.black87),
                       contentPadding: const EdgeInsets.symmetric(
                           vertical: 27, horizontal: 10),
                       hintText: 'Confirm Password',
                       border: InputBorder.none,
                       enabledBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(color: Colors.white),
+                        borderSide: BorderSide(
+                            color: !isDark ? Colors.white : Colors.black),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(color: Colors.black),
+                        borderSide: BorderSide(
+                            color: !isDark ? Colors.black : Colors.white),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       filled: true,
-                      fillColor: Colors.grey[200],
+                      fillColor: isDark ? Colors.grey[700] : Colors.grey[200],
                     ),
                   ),
                 ),
@@ -200,13 +217,13 @@ class _RegisterPageMobileState extends State<RegisterPageMobile> {
                         "Register",
                         style: GoogleFonts.delius(
                             letterSpacing: 1.5,
-                            color: Colors.white,
+                            color: !isDark ? Colors.white : Colors.black,
                             fontWeight: FontWeight.bold,
                             fontSize: 30),
                       )),
                       height: 80,
                       decoration: BoxDecoration(
-                          color: Colors.black,
+                          color: !isDark ? Colors.black : Colors.white,
                           borderRadius: BorderRadius.circular(15)),
                     ),
                   ),
@@ -219,8 +236,10 @@ class _RegisterPageMobileState extends State<RegisterPageMobile> {
                   children: [
                     Text(
                       "Already have an account?",
-                      style:
-                          GoogleFonts.delius(fontSize: 20, fontWeight: FontWeight.bold),
+                      style: GoogleFonts.delius(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: !isDark ? Colors.black : Colors.white),
                     ),
                     GestureDetector(
                       onTap: widget.onTap,
