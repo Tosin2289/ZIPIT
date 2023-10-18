@@ -2,9 +2,14 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:zipit/mobile/style/app_styleM.dart';
 
-Widget noteCardMobile(Function()? onTap, QueryDocumentSnapshot doc) {
+Widget noteCardMobile(
+  Function()? onTap,
+  QueryDocumentSnapshot doc,
+  Function()? onLongPress,
+) {
   return InkWell(
     onTap: onTap,
+    onLongPress: onLongPress,
     child: Container(
       padding: const EdgeInsets.all(8),
       margin: const EdgeInsets.all(8),
