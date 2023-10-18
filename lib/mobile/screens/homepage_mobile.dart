@@ -48,6 +48,7 @@ class _HomePageMobileState extends State<HomePageMobile> {
                       .doc(docId)
                       .delete();
                   print('Document deleted successfully');
+                  Navigator.pop(context);
                 } catch (e) {
                   print('Error deleting document: $e');
                 }

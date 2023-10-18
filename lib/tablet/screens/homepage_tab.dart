@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:zipit/mobile/screens/note_readerM.dart';
 import 'package:zipit/tablet/componets/note_cardT.dart';
@@ -21,6 +22,43 @@ class _HomePageTabState extends State<HomePageTab> {
 
   final currentUser = FirebaseAuth.instance.currentUser;
   String userName = "";
+  void deletethoughts(docId) async {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          content: Text("Are you sure you want to delete?"),
+          actions: [
+            MaterialButton(
+              textColor: Colors.white,
+              color: Colors.black,
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text("No"),
+            ),
+            MaterialButton(
+              textColor: Colors.white,
+              color: Colors.red,
+              onPressed: () async {
+                try {
+                  await FirebaseFirestore.instance
+                      .collection('thoughts')
+                      .doc(docId)
+                      .delete();
+                  print('Document deleted successfully');
+                  Navigator.pop(context);
+                } catch (e) {
+                  print('Error deleting document: $e');
+                }
+              },
+              child: Text("Yes"),
+            ),
+          ],
+        );
+      },
+    );
+  }
 
   Future<void> fetchuserData() async {
     try {
@@ -88,19 +126,34 @@ class _HomePageTabState extends State<HomePageTab> {
                     );
                   }
                   if (snapshot.hasData) {
-                    return GridView(
+                    List thoughtLists = snapshot.data!.docs;
+
+                    return GridView.builder(
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 3),
-                      children: snapshot.data!.docs
-                          .map((note) => noteCardTablet(() {
-                                Navigator.push(context, MaterialPageRoute(
-                                  builder: (context) {
-                                    return NoteReaderScreenMobile(note);
-                                  },
-                                ));
-                              }, note))
-                          .toList(),
+                              crossAxisCount: 2),
+                      itemCount: thoughtLists.length,
+                      itemBuilder: (context, index) {
+                        DocumentSnapshot document = thoughtLists[index];
+                        String docId = document.id;
+                        return noteCardTablet(
+                          () {
+                            Navigator.push(context, MaterialPageRoute(
+                              builder: (context) {
+                                return NoteReaderScreenMobile(
+                                    thoughtLists[index]);
+                              },
+                            ));
+                          },
+                          thoughtLists[index],
+                          () {
+                            deletethoughts(docId);
+                          },
+                        )
+                            .animate(delay: 100.ms)
+                            .fadeIn(duration: 800.ms)
+                            .moveY(begin: 20, end: 0);
+                      },
                     );
                   }
                   return Text(

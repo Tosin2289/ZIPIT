@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:zipit/tablet/style/app_styleT.dart';
 
-Widget noteCardTablet(Function()? onTap, QueryDocumentSnapshot doc) {
+Widget noteCardTablet(
+    Function()? onTap, QueryDocumentSnapshot doc, Function()? onLongPress) {
   return InkWell(
     onTap: onTap,
+    onLongPress: onLongPress,
     child: Container(
       padding: EdgeInsets.all(8),
       margin: EdgeInsets.all(8),
