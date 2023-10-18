@@ -22,16 +22,42 @@ class _HomePageMobileState extends State<HomePageMobile> {
 
   final currentUser = FirebaseAuth.instance.currentUser;
   String userName = "";
-  void deleteDocument(docid) async {
-    try {
-      await FirebaseFirestore.instance
-          .collection('thoughts')
-          .doc(docid)
-          .delete();
-      print('Document deleted successfully');
-    } catch (e) {
-      print('Error deleting document: $e');
-    }
+
+  void deletethoughts(docId) async {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          content: Text("Are you sure you want to delete?"),
+          actions: [
+            MaterialButton(
+              textColor: Colors.white,
+              color: Colors.black,
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text("No"),
+            ),
+            MaterialButton(
+              textColor: Colors.white,
+              color: Colors.red,
+              onPressed: () async {
+                try {
+                  await FirebaseFirestore.instance
+                      .collection('thoughts')
+                      .doc(docId)
+                      .delete();
+                  print('Document deleted successfully');
+                } catch (e) {
+                  print('Error deleting document: $e');
+                }
+              },
+              child: Text("Yes"),
+            ),
+          ],
+        );
+      },
+    );
   }
 
   Future<void> fetchuserData() async {
@@ -128,27 +154,7 @@ class _HomePageMobileState extends State<HomePageMobile> {
                           },
                           thoughtLists[index],
                           () {
-                            AlertDialog(
-                              content: Text("Are you sure you want to delete?"),
-                              actions: [
-                                MaterialButton(
-                                  textColor: Colors.white,
-                                  color: Colors.black,
-                                  onPressed: () {
-                                    Navigator.pop(context);
-                                  },
-                                  child: Text("Cancle"),
-                                ),
-                                MaterialButton(
-                                  textColor: Colors.white,
-                                  color: Colors.red,
-                                  onPressed: () {
-                                    deleteDocument(docId);
-                                  },
-                                  child: Text("Delete"),
-                                ),
-                              ],
-                            );
+                            deletethoughts(docId);
                           },
                         )
                             .animate(delay: 100.ms)
