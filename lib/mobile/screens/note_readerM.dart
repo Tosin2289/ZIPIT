@@ -39,7 +39,7 @@ class _NoteReaderScreenMobileState extends State<NoteReaderScreenMobile> {
           const  SizedBox(
               height: 28,
             ),
-            Text(
+            SelectableText(
               widget.doc["note_content"],
               style: AppStyleMoile.mainContentMobile,
             ),
